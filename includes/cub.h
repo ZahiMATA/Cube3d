@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:04:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:55:35 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/13 12:56:10 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ typedef struct s_cub
 	t_cylinder			*cylinder;
 	int					nb_cylinder;
 	t_hit_record		rec;
-	// double				ray_min;
-	// double				ray_max;
 	t_interval			inter;
 	unsigned int		seed;
 	int					fd_rt_file;
@@ -62,17 +60,9 @@ typedef struct s_cub
 	char				**cylinder_xyz_tokens;
 	char				**cylinder_axis_tokens;
 	char				**cylinder_rgb_tokens;
-	// t_interval			interval;
-	// t_point				*points;
-	// int					row;
-	// int					col;
-	// float				z_min;
-	// float				z_max;
-	// float				z_transformed;
-	// int					mode;
-	// int					view;
-	// float				timer;
-	// t_transformation	t;
+	char				**map;
+	int					map_width;
+	int					map_height;
 }	t_cub;
 
 #endif

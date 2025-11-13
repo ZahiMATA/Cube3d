@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 14:28:42 by ybouroga          #+#    #+#              #
-#    Updated: 2025/11/12 16:37:46 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/11/13 13:24:31 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ git:
   -not -path "./OBJ/*" \
   -not -path "./tester/*") .gitignore Makefile \
   mk/includes.mk mk/sources.mk mk/targets.mk \
+  test_files/* \
   && git commit -m "$(m)" && git push
 
 .PHONY: all clean fclean re 0 1 2 3 4 debug asan vg vg_nel git

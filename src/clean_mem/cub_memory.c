@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 16:35:45 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:55:15 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/13 13:02:23 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ static void	cub_free_image_window_mlx(t_cub *m)
 	}
 }
 
-// static void	cub_free_array(char	***tab)
-// {
-// 	int	i;
+static void	cub_free_array(char	***tab)
+{
+	int	i;
 
-// 	i = 0;
-// 	if (tab == NULL || *tab == NULL)
-// 		return ;
-// 	while ((*tab)[i])
-// 		cub_free_null(&(*tab)[i++]);
-// 	free(*tab);
-// 	*tab = NULL;
-// }
+	i = 0;
+	if (tab == NULL || *tab == NULL)
+		return ;
+	while ((*tab)[i])
+		cub_free_null((void **)&(*tab)[i++]);
+	free(*tab);
+	*tab = NULL;
+}
 
 
 /* Same as :
@@ -91,6 +91,7 @@ void	cub_free_all(t_cub **m)
 	cub_free_tokens(&(*m)->cylinder_axis_tokens);
 	cub_free_tokens(&(*m)->cylinder_rgb_tokens);
 	cub_free_tokens(&(*m)->rt_file_line_tokens);
+	cub_free_array(&(*m)->map);
 	get_next_line(FREE_STASH);
 	cub_free_null((void **)&(*m)->rt_file_line);
 	close((*m)->fd_rt_file);
