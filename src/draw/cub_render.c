@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:53:25 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:55:15 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:01:37 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	cub_render(t_cub *m)
 			m->ray.dir = vec4_sub(pixel_center, m->camera.center);
 			m->ray.origin = m->camera.center;
 			//cub_print_var_d("MAX", m->camera.max_depth);
-			cub_putpixel(m, x, y, color_to_int(ray_color(m, m->ray, m->camera.max_depth)));
+			cub_putpixel(m, x, y, color_to_int(ray_color(m, m->ray)));
 			x++;
 		}
 		y++;

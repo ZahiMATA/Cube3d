@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 18:41:56 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:52:21 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:06:59 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_cylinder
 	t_color	color;
 }	t_cylinder;
 
-bool	cub_hit(const t_cub *m, const t_ray r, t_interval inter, t_hit_record *rec);
+bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec);
 bool	cub_sphere_hit(const t_cub *m, t_param_sphere_hit *_);
 bool	cub_plane_hit(const t_cub *m, t_param_sphere_hit *_);
 

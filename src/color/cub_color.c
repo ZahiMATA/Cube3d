@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 18:30:50 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:55:15 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:02:46 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,70 +40,19 @@ static	t_vec4	get_bckgnd_color(t_ray ray) // BACKROUND COLOR GRADIANT WITH Y AXI
 	return (learp(a, color_start, color_end));
 }
 
-// TODO rendre obligatoire le ambiant ... dans .rt
-t_vec4		ray_color(t_cub *m, const t_ray ray, int depth)
+// TODO si ray non modifie supprimer le parametre t_ray ray
+t_vec4		ray_color(t_cub *m, const t_ray ray)
 {
 	t_vec4	color;
-	int i = 1;
 	t_hit_record	rec;
+	double shade;
 
-	if (depth <= 0)
-		return (vec4_init(0, 0, 0, 0));
-	m->inter.min = VERY_LITTLE;
-	m->inter.max = INFINITY;
-	if (cub_hit(m, ray, m->inter, &rec))
+
+	if (cub_hit_grid(m, ray, &rec))
 	{
-		if (i == 0)
-		{
-			t_vec4 N = rec.normal;
-			t_vec4 N2 = vec4_init(N.v[0] + 1, N.v[1] + 1, N.v[2] + 1, 0);
-			//cub_print_vec("normal", N);
-			color = vec4_scale(N2, 0.5);
-		}
-		if (i == 1)
-		{
-
-			//cub_print_var_d("ambiant", m->ambient.ratio);
-			//cub_print_vec("ambiant", m->ambient.colorN);
-			//cub_print_var_d("brightness", m->light.brightness);
-			t_vec4 ambient = vec4_scale( \
-				vec3_hadamard_product(rec.colorN, m->ambient.colorN), \
-				m->ambient.ratio);
-			t_vec4 light_dir = vec4_sub(m->light.point, rec.p);
-			light_dir = vec3_normalize(light_dir);
-
-		t_ray shadow_ray;
-		shadow_ray.origin = rec.p;
-		shadow_ray.dir = light_dir;
-		double light_distance = sqrt(vec3_sqr_length(light_dir));
-		t_hit_record tmp_rec;
-		int in_shadow = cub_hit(m, shadow_ray, (t_interval){.min=VERY_LITTLE, .max=light_distance}, &tmp_rec);
-		t_vec4 diffuse = vec4_init(0, 0, 0, 0);
-		if (!in_shadow)
-		{
-				double diff = vec3_dot(rec.normal, light_dir);
-			if (diff < 0)
-				diff = 0.0;
-			t_vec4 light_color =  vec4_init(.85, .85, .85, 0); //TODO
-				diffuse = vec4_scale( \
-				vec3_hadamard_product(rec.colorN, light_color),
-				diff * m->light.brightness);
-		}
-
-		t_vec4 final_color = vec4_add(ambient, diffuse);
-		//gamma2 pour eclaircir
-		final_color.v[0] = sqrt(final_color.v[0]);
-		final_color.v[1] = sqrt(final_color.v[1]);
-		final_color.v[2] = sqrt(final_color.v[2]);
-		return final_color;
-		}
-		else {
-			t_ray ray2;
-			ray2.origin = rec.p;
-			ray2.dir = vec4_add(rec.normal, random_on_hemisphere(m, rec.normal));
-			//cub_print_vec("r", ray.dir);
-			color = vec4_scale(ray_color(m, ray2, depth - 1), 0.5);
-		}
+		shade = 1.0 / (1 + rec.t * SHADE_RATIO);
+		color = vec4_init(shade, shade, shade, 0);
+		return (color);
 	}
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/12 17:32:43 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:09:17 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,20 @@ Example : cy 50.0,0.0,20.6 0.0,0.0,1.0 14.2 21.42 10,0,255\n"
 # define KEY_PRESS 2
 # define KEY_PRESS_MASK 1
 # define FREE_STASH -1
-// # define MAX_DOUBLE	1.7976931348623157e+308 // OR DBL_MAX FROM <FLOAT.H>?
+# define MAX_DOUBLE	1.7976931348623157e+308 // OR DBL_MAX FROM <FLOAT.H>?
 # define COLOR_BLACK 0x000000
 # define COLOR_WHITE 0xFFFFFF
-# define COLOR_GREY 0x808080
+# define COLOR_GREY 0xAAAAAA
 # define COLOR_RED 0xFF0000
 # define COLOR_GREEN 0x00FF00
 # define COLOR_BLUE 0x0000FF
 # define COLOR_LIGHT_BLUE 0x80B4FF
 # define COLOR_BCKGND_TOP COLOR_LIGHT_BLUE
 # define COLOR_BCKGND_BOTTOM COLOR_WHITE
+# define COLOR_BCKGND COLOR_GREY
 # define C_255_999  255.999f
 # define C_255  255.0f
 # define C_1_160 1e-160
-// # define PI 3.14159265358979323846f
 # define PI M_PI
 # define CAMERA_MAX_DEPTH 10
 # define VERY_LITTLE 0.001f
@@ -86,5 +86,12 @@ Example : cy 50.0,0.0,20.6 0.0,0.0,1.0 14.2 21.42 10,0,255\n"
 # define V_POINT 0
 # define V_VECTOR 1
 # define MOVE_STEP .01
+# define HIT_0 0
+# define HIT_1 1
+# define CHAR_0 '0'
+# define CHAR_1 '1'
+# define SIDE_0 0
+# define SIDE_1 1
+# define SHADE_RATIO 0.05
 
 #endif

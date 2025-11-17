@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 12:05:22 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:39:40 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 void	cub_basic_init(t_cub **m)
 {
 	(void) m;
+	char **map = ft_calloc(3, sizeof(char *));
+	for (int y = 0; y < 3; y++)
+		map[y] = ft_calloc(4, sizeof(char));
+	map[0][0] = '1'; map[0][1] = '1'; map[0][2] = '1';
+	map[1][0] = '1'; map[1][1] = '0'; map[1][2] = '1';
+	map[2][0] = '1'; map[2][1] = '1'; map[2][2] = '1';
+	(*m)->map = map;
 }
 
 void	cub_init(t_cub **m, char *filepath)

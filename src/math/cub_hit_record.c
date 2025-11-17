@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:55:15 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:10:04 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,45 +22,83 @@ void	set_face_normal(t_ray ray, t_vec4 outward_normal, t_hit_record *rec)
 		rec->normal = vec4_scale(outward_normal, -1);
 }
 
-bool	cub_hit(const t_cub *m, const t_ray r, t_interval inter, t_hit_record *rec)
+bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 {
-	//t_interval		inter_temp;
-	bool				hit_anything;
-	t_param_sphere_hit	_; // CHANGE TO t_param_hit ?
+	int 	map_x;
+	int 	map_y;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	int		step_x;
+	int		step_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	int		hit;
+	int		side;
+	double	perp_wall_dist;
 
-	hit_anything = false;
-	_.ray = r;
-	_.inter = inter;
-	//cub_print_var_d("max", inter.max);
-	_.rec = rec;
-	_.i = 0;
-	//rec->t = inter.max;
-	//rt_print_var_d("t avant", rec->t);
-	//cub_print_vec("N avant", rec->normal);
-	while (_.i < m->nb_sphere)
-	{
-		if (cub_sphere_hit(m, &_))
-		{
-			//printf("ok[%d][%f]\n", _.i, m->rec.t);
-			hit_anything = true;
-			//_.inter.max = rec->t;
-			_.inter.max = _.rec->t;
-		}
-		//printf("ok[%d][%f]\n", _.i, m->rec.t);
-		_.i++;
-	}
-	_.i = 0;
-	while (_.i < m->nb_plane)
-	{
-		if (cub_plane_hit(m, &_))
-		{
-			//printf("ok[%d][%f]\n", _.i, m->rec.t);
-			hit_anything = true;
-			_.inter.max = _.rec->t;
-		}
-		//printf("ok[%d][%f]\n", _.i, m->rec.t);
-		_.i++;
-	}
+	map_x = (int) r.origin.v[0];
+	map_y = (int) r.origin.v[1];
+	ray_dir_x = r.dir.v[0];
+	ray_dir_y = r.dir.v[1];
+	delta_dist_x = (ray_dir_x != 0) ? fabs(1.0 / ray_dir_x) : MAX_DOUBLE;
+	delta_dist_y = (ray_dir_y != 0) ? fabs(1.0 / ray_dir_y) : MAX_DOUBLE;
 
-	return (hit_anything);
+	if(ray_dir_x < 0)
+	{
+		step_x = -1;
+		side_dist_x = (r.origin.v[0] - map_x) * delta_dist_x;
+	}
+	else
+	{
+		step_x = 1;
+		side_dist_x = (map_x + 1.0 - r.origin.v[0]) * delta_dist_x;
+	}
+	if (ray_dir_y < 0)
+	{
+		step_y = -1;
+		side_dist_y = (r.origin.v[1] - map_y) * delta_dist_y;
+	}
+		else
+	{
+		step_y = 1;
+		side_dist_y = (map_y + 1.0 - r.origin.v[1]) * delta_dist_y;
+	}
+	hit = HIT_0;
+	while (hit == HIT_0)
+	{
+		if (side_dist_x < side_dist_y)
+		{
+			side_dist_x += delta_dist_x;
+			map_x += step_x;
+			side = SIDE_0;
+		}
+		else
+		{
+			side_dist_y += delta_dist_y;
+			map_y += step_y;
+			side = SIDE_1;
+		}
+		if (map_x < 0 || map_x >= m->map_width || map_y < 0 || map_y >= m->map_height)
+			return false;
+		if (m->map[map_y][map_x] == CHAR_1)
+			hit = HIT_1;
+	}
+	if (side == SIDE_0)
+		perp_wall_dist = (side_dist_x - delta_dist_x);
+	else
+		perp_wall_dist = (side_dist_y - delta_dist_y);
+	rec->t = perp_wall_dist;
+	rec->p = vec4_add(r.origin, vec4_scale(r.dir, rec->t));
+
+	if (side == SIDE_0)
+		rec->normal = (t_vec4){ .v = { (r.dir.v[0] > 0) ? -1 : 1, 0, 0, 0 } };
+	else
+		rec->normal = (t_vec4){ .v = { 0, (r.dir.v[1] > 0) ? -1 : 1, 0, 0 } };
+
+	rec->front_face = true;
+	rec->colorN = int_to_color(COLOR_BCKGND);
+	return true;
+
 }
