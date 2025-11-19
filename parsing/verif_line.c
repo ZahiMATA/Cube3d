@@ -50,7 +50,7 @@ int what_info(char *str, int *who_info, int i)
 	}
 	return(-1);
 }
-char *verif_line(char *line, int *who_info)
+char *verif_line(char *line, int *who_info, int *index_start)
 {
 	int i = 0;
 	*who_info = 0;
@@ -60,5 +60,6 @@ char *verif_line(char *line, int *who_info)
 		return(NULL);
 	if(what_info(line, who_info, i) == -1)
 		return(NULL);
+	 *index_start = i ;
 	return(line);
 }
