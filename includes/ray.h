@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:57:47 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/19 15:13:10 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/20 19:23:35 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,34 @@
 
 # include "vec3.h"
 
-typedef struct s_cub t_cub;
+typedef struct s_cub	t_cub;
 
-typedef struct	s_ray
+typedef struct s_ray
 {
-	t_vec3 origin;
-	t_vec3 dir;
-} t_ray;
+	t_vec3	origin;
+	t_vec3	dir;
+}	t_ray;
 
-
-typedef enum	e_face
+typedef enum e_face
 {
-	FACE_NORTH,
+	FACE_NORTH = 0,
 	FACE_WEST,
 	FACE_SOUTH,
 	FACE_EAST
 }	t_face;
 
 // p : the contact point between ray and the object
-typedef struct	s_hit_record
+typedef struct s_hit_record
 {
-	t_vec3		p;
-	t_vec3		normal;
-	double		t;
+	t_vec3	p;
+	t_vec3	normal;
+	double	t;
 	int		face;
-} t_hit_record;
+	int		line_height;
+	int		draw_begin;
+	int		draw_end;
+}	t_hit_record;
 
-t_vec3	ray_at(t_ray ray,  double t);
+t_vec3	ray_at(t_ray ray, double t);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/19 18:57:42 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/20 17:56:57 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 	double	side_dist_x;
 	double	side_dist_y;
 	int		side;
-	double	perp_wall_dist;
 
 	//cub_print_var_d("mw", m->map_width);
 	col = (int) r.origin.x;
@@ -85,10 +84,9 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 	}
 	//(void)perp_wall_dist;
 	if (side == SIDE_VERTICAL)
-		perp_wall_dist = (side_dist_x - delta_dist_x);
+		rec->t = (side_dist_x - delta_dist_x);
 	else
-		perp_wall_dist = (side_dist_y - delta_dist_y);
-	rec->t = perp_wall_dist;
+		rec->t = (side_dist_y - delta_dist_y);
 
 
 	rec->p = vec3_add(r.origin, vec3_scale(r.dir, rec->t));

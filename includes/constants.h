@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/19 16:10:10 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/20 19:06:43 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,42 +16,42 @@
 # define DEBUG 1
 // # define FALSE 0 // type int replaced by more explicit type bool true/false
 // # define TRUE 1 // type int replaced by more explicit type bool true/false
-# define ERROR_MLX "Error\nError MRT: Can not instantiate mlx.\n"
-# define ERROR_WINDOW "Error\nError MRT: Can not instantiate window.\n"
-# define ERROR_IMAGE "Error\nError MRT: Can not instantiate image.\n"
-# define ERROR_ADDR "Error\nError MRT: Can not instantiate buffer address.\n"
-# define ERROR_MALLOC "Error\nError MRT: Malloc failed.\n"
-# define ERROR_ARGV "Error\nError MRT: Expected 1 argument (file path) or -h \
+# define ERROR_MLX "Error CUB: Can not instantiate mlx.\n"
+# define ERROR_WINDOW "Error CUB: Can not instantiate window.\n"
+# define ERROR_IMAGE "Error CUB: Can not instantiate image.\n"
+# define ERROR_ADDR "Error CUB: Can not instantiate buffer address.\n"
+# define ERROR_MALLOC "Error CUB: Malloc failed.\n"
+# define ERROR_ARGV "Error CUB: Expected 1 argument (file path) or -h \
 (for help).\n"
-# define ERROR_WRONG_EXT "Error\nError MRT: Wrong file extension. \
+# define ERROR_WRONG_EXT "Error\nError CUB: Wrong file extension. \
 Shall be a *.rt file.\n"
-# define ERROR_FILE_NOT_FOUND "Error\nError MRT: File not found.\n"
-# define ERROR_OPEN_FILE "Error\nError MRT: Issue when opening input file.\n"
-# define ERROR_EMPTY_FILE "Error\nError MRT: File is empty.\n"
-# define ERROR_WRONG_OBJECT_ID "Error\nError MRT: Wrong object identifier. \
+# define ERROR_FILE_NOT_FOUND "Error\nError CUB: File not found.\n"
+# define ERROR_OPEN_FILE "Error\nError CUB: Issue when opening input file.\n"
+# define ERROR_EMPTY_FILE "Error\nError CUB: File is empty.\n"
+# define ERROR_WRONG_OBJECT_ID "Error\nError CUB: Wrong object identifier. \
 Shall be A, C, L, pl, sp, cy.\n"
-# define ERROR_INVALID_AL_DATA "Error\nError MRT: Invalid ambiant light data.\n\
+# define ERROR_INVALID_AL_DATA "Error\nError CUB: Invalid ambiant light data.\n\
 Check ambiant lighting ratio (normalized values within [0.0,1.0]) \
 and R,G,B colors (within [0-255]).\nAll shall be numerical values.\n\
 Example : A 0.2 255,255,255\n"
-# define ERROR_INVALID_C_DATA "Error\nError MRT: Invalid camera data.\n\
+# define ERROR_INVALID_C_DATA "Error\nError CUB: Invalid camera data.\n\
 Check coordinates, orientation vector (normalized values within \
 [-1,1]) and FOV (within [0-180]).\nAll shall be numerical values.\n\
 Example : C -50.0,0,20 0,0,1 70\n"
-# define ERROR_INVALID_L_DATA "Error\nError MRT: Invalid light data.\n\
+# define ERROR_INVALID_L_DATA "Error\nError CUB: Invalid light data.\n\
 Check coordinates, light brightness (normalized values within \
 [0.0,1.0]).\nAll shall be numerical values.\n\
 Example : L -40.0,50.0,0.0 0.6\n"
-# define ERROR_INVALID_SP_DATA "Error\nError MRT: Invalid sphere data.\n\
+# define ERROR_INVALID_SP_DATA "Error\nError CUB: Invalid sphere data.\n\
 Check coordinates, diameter and R,G,B colors (within [0-255]).\n\
 All shall be numerical values.\n\
 Example : sp 0.0,0.0,20.6 12.6 10,0,255\n"
-# define ERROR_INVALID_PL_DATA "Error\nError MRT: Invalid plane data.\n\
+# define ERROR_INVALID_PL_DATA "Error\nError CUB: Invalid plane data.\n\
 Check coordinates, normal vector (normalized values within \
 [-1,1]) and R,G,B colors (within [0-255]).\n\
 All shall be numerical values.\n\
 Example : pl 0.0,0.0,-10.0 0.0,1.0,0.0 0,0,225\n"
-# define ERROR_INVALID_CY_DATA "Error\nError MRT: Invalid cylinder data.\n\
+# define ERROR_INVALID_CY_DATA "Error\nError CUB: Invalid cylinder data.\n\
 Check coordinates, normal vector (normalized values within \
 [-1,1]), cylinder diameter, cylinder height and \
 R,G,B colors (within [0-255]).\n\
@@ -78,14 +78,15 @@ Example : cy 50.0,0.0,20.6 0.0,0.0,1.0 14.2 21.42 10,0,255\n"
 # define C_255_999  255.999f
 # define C_255  255.0f
 # define C_1_160 1e-160
-# define PI M_PI
+# define PI 3.14159265358979323846
 # define CAMERA_MAX_DEPTH 10
 # define VERY_LITTLE 0.001f
 # define EPSILON 1e-6 // TO CHECK IF VECTOR ARE PARALLEL (IF SCALAR PRODUCT = 0)
 						// A REGROUPER AVEC VERY_LITTLE ?
 # define V_POINT 0
 # define V_VECTOR 1
-# define MOVE_STEP .01
+# define MOVE_STEP .05
+# define ANGLE_STEP PI / 20
 # define HIT_0 0
 # define HIT_1 1
 # define CHAR_0 '0'

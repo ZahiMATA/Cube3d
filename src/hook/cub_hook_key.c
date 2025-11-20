@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:42:41 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/19 18:52:24 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/20 19:08:35 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,25 @@ void	cub_do_hook_key(t_cub *m, int keycode)
 {
 	if (keycode == XK_Escape)
 		mlx_loop_end(m->mlx);
-	if (keycode == XK_a || keycode == XK_Left)
-		m->player_x -= MOVE_STEP;
-	if (keycode == XK_d || keycode == XK_Right)
-		m->player_x += MOVE_STEP;
-	if (keycode == XK_w || keycode == XK_Up)
-		m->player_y -= MOVE_STEP;
-	if (keycode == XK_s || keycode == XK_Down)
-		m->player_y += MOVE_STEP;
-	if (keycode == XK_q)
-		m->camera.center.v[2] -= MOVE_STEP;
-	if (keycode == XK_e)
-		m->camera.center.v[2] += MOVE_STEP;
+	if (keycode == XK_a)
+		m->player.x -= MOVE_STEP;
+	if (keycode == XK_d)
+		m->player.x += MOVE_STEP;
+	if (keycode == XK_w)
+		m->player.y -= MOVE_STEP;
+	if (keycode == XK_s)
+		m->player.y += MOVE_STEP;
+	if (keycode == XK_Left)
+		m->player_dir = fdf_rotate_xy(m, m->player_dir, ANGLE_STEP);
+	if (keycode == XK_Right)
+		m->player_dir = fdf_rotate_xy(m, m->player_dir, -ANGLE_STEP);
+	if (keycode == XK_Up)
+		m->camera.fov_angle++;
+	if (keycode == XK_Down)
+		m->camera.fov_angle--;
+	if (keycode == XK_i)
+		cub_debug_camera(m);
+
 
 
 		// if (keycode == XK_z)

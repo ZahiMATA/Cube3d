@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 16:35:45 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 13:02:23 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/20 16:00:09 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,12 @@ static void	cub_free_array(char	***tab)
 	if (tab == NULL || *tab == NULL)
 		return ;
 	while ((*tab)[i])
+	{
 		cub_free_null((void **)&(*tab)[i++]);
+	}
 	free(*tab);
 	*tab = NULL;
 }
-
 
 /* Same as :
   free((*m)->map);
@@ -54,7 +55,6 @@ static void	cub_free_array(char	***tab)
   free(*m);
   (*m) = NULL;
 */
-
 void	cub_free_tokens(char ***tokens_ptr)
 {
 	char **tokens = *tokens_ptr;
@@ -77,24 +77,10 @@ void	cub_free_all(t_cub **m)
 {
 	if (m == NULL || *m == NULL)
 		return ;
-
-	cub_free_tokens(&(*m)->ambient_rgb_tokens);
-	cub_free_tokens(&(*m)->camera_center_xyz_tokens);
-	cub_free_tokens(&(*m)->camera_axis_xyz_tokens);
-	cub_free_tokens(&(*m)->light_xyz_tokens);
-	cub_free_tokens(&(*m)->sphere_xyz_tokens);
-	cub_free_tokens(&(*m)->sphere_rgb_tokens);
-	cub_free_tokens(&(*m)->plane_xyz_tokens);
-	cub_free_tokens(&(*m)->plane_normal_tokens);
-	cub_free_tokens(&(*m)->plane_rgb_tokens);
-	cub_free_tokens(&(*m)->cylinder_xyz_tokens);
-	cub_free_tokens(&(*m)->cylinder_axis_tokens);
-	cub_free_tokens(&(*m)->cylinder_rgb_tokens);
-	cub_free_tokens(&(*m)->rt_file_line_tokens);
 	cub_free_array(&(*m)->map);
 	get_next_line(FREE_STASH);
-	cub_free_null((void **)&(*m)->rt_file_line);
-	close((*m)->fd_rt_file);
+	//cub_free_null((void **)&(*m)->rt_file_line);
+	//close((*m)->fd_rt_file);
 	cub_free_null((void **)&(*m)->sphere);
 	cub_free_null((void **)&(*m)->plane);
 	cub_free_null((void **)&(*m)->cylinder);

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 20:06:43 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/18 20:07:02 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/20 18:49:51 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 # define VEC3_H
 
 typedef struct s_cub t_cub;
+
+typedef union s_vec2
+{
+	struct {
+		double	x;
+		double	y;
+	};
+	double	v[2];
+}	t_vec2;
 
 typedef union s_vec3
 {

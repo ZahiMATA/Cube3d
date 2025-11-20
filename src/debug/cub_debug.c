@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:04:54 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/18 19:44:18 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/20 19:10:24 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ void	cub_debug_camera(t_cub *m)
 		cub_print_vec("pixel00_loc      ", c.pixel00_loc);
 		cub_print_vec("pixel_delta_u    ", c.pixel_delta_u);
 		cub_print_vec("pixel_delta_v    ", c.pixel_delta_v);
+		cub_print_var_d("fov angle        ", c.fov_angle);
+		cub_print_var_d("tan fov angle    ", c.tan_fov);
 	}
 }
