@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:53:25 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/20 19:38:50 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/20 19:41:04 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,15 @@ static int	get_texture_color(t_cub *m)
 	step = (double)texture->h / m->rec.line_height;
 	texture_position = (m->rec.draw_begin - m->height / 2 + m->rec.line_height / 2) * step;
 	y = m->rec.draw_begin;
-	// while (y <= m->rec.draw_end)
-	// {
-	// 	texture_position += step;
-	// 	color = get_texture_pixel(texture, m->rec.p.x, texture_position);
-	// 	// cub_print_var_d("tex", texture_position);
-	// 	// cub_print_var_d("?", step);
-	// 	y++;
-	// }
-	 color = 0xff00ff;
+	while (y <= m->rec.draw_end)
+	{
+		texture_position += step;
+		color = get_texture_pixel(texture, m->rec.p.x, texture_position);
+		// cub_print_var_d("tex", texture_position);
+		// cub_print_var_d("?", step);
+		y++;
+	}
+	 //color = 0xff00ff;
 	return (color);
 }
 
