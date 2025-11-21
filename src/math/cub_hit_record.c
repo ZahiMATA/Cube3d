@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/21 16:21:12 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/21 18:21:36 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,29 +82,32 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 		if (m->map[lig][col] == CHAR_1)
 			break;
 	}
-	//(void)perp_wall_dist;
 	if (side == SIDE_VERTICAL)
 		rec->t = (side_dist_x - delta_dist_x);
 	else
 		rec->t = (side_dist_y - delta_dist_y);
 	rec->p = vec3_add(r.origin, vec3_scale(r.dir, rec->t));
 
-	// if (side == SIDE_VERTICAL)
-	// 	rec->texture_x = m->texture->w * (rec->p.y - (int)(rec->p.y));
-	// else
-	// 	rec->texture_x = m->texture->w * (rec->p.x - (int)(rec->p.x));
-	double wall_x;
 	if (side == SIDE_VERTICAL)
-		wall_x = rec->p.y - floor(rec->p.y);
+		rec->texture_x = m->texture->w * (rec->p.y - floor(rec->p.y));
 	else
-		wall_x = rec->p.x - floor(rec->p.x);
+		rec->texture_x = m->texture->w * (rec->p.x - floor(rec->p.x));
+	cub_print_var_d("x", rec->p.y - floor(rec->p.y));
+	cub_print_var_d("rec->texture_x ", rec->texture_x );
 
-	// inversion si nécessaire
-	if ((side == SIDE_VERTICAL && r.dir.x > 0) || (side == SIDE_HORIZONTAL && r.dir.y < 0))
-		wall_x = 1.0 - wall_x;
+	// double wall_x;
+	// if (side == SIDE_VERTICAL)
+	// 	wall_x = rec->p.y - floor(rec->p.y);
+	// else
+	// 	wall_x = rec->p.x - floor(rec->p.x);
+	// // inversion si nécessaire
+	// if ((side == SIDE_VERTICAL && r.dir.x > 0) || (side == SIDE_HORIZONTAL && r.dir.y < 0))
+	// 	wall_x = 1.0 - wall_x;
+	// rec->texture_x = (int)(wall_x * m->texture->w);
 
-	rec->texture_x = (int)(wall_x * m->texture->w);
+		// if ( (side==0 && r.dir.x>0) || (side==1 && r.dir.y<0) )
+		// 	rec->texture_x  = m->texture->w - rec->texture_x - 1;
 
-	//cub_print_var_d("x", 1);
+	// //cub_print_var_d("x", 1);
 	return true;
 }

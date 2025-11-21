@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:04:54 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/21 13:44:09 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/21 17:05:24 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,21 @@ void	cub_debug_camera(t_cub *m)
 	if (DEBUG)
 	{
 		t_camera	c;
+		int			lig;
 
 		c = m->camera;
 		cub_print_var_d("width ", m->width);
 		cub_print_var_d("height", m->height);
 		cub_print_var_d("viewport_h       ", m->viewport_h);
-		cub_print_var_d("viewport_w       ", m->viewport_w);
-		cub_print_vec("center           ", c.center);
-		cub_print_vec("axis             ", c.axis);
-		cub_print_vec("viewport_u       ", c.viewport_u);
-		cub_print_vec("viewport_v       ", c.viewport_v);
-		cub_print_vec("upper_left_corner", c.upper_left_corner);
-		cub_print_vec("pixel00_loc      ", c.pixel00_loc);
-		cub_print_vec("pixel_delta_u    ", c.pixel_delta_u);
-		cub_print_vec("pixel_delta_v    ", c.pixel_delta_v);
 		cub_print_var_d("fov angle        ", c.fov_angle);
 		cub_print_var_d("tan fov angle    ", c.tan_fov);
+		cub_print_var_d("map width        ", m->map_width);
+		cub_print_var_d("map height       ", m->map_height);
+		cub_print_var_d("texture w        ", m->texture->w);
+		cub_print_var_d("texture h        ", m->texture->h);
+		lig = 0;
+		while (lig < m->map_height)
+			printf("%s\n", m->map[lig++]);
+		printf("\n");
 	}
 }
