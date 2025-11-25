@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 18:37:30 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/24 21:54:30 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 17:17:58 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	cub_do_hook_mouse(t_cub *m, int x, int y)
 {
 	int		dx;
-
 	{
 		(void) y;
 		if (x != m->mouse.x)
@@ -26,4 +25,3 @@ void	cub_do_hook_mouse(t_cub *m, int x, int y)
 		}
 	}
 }
-

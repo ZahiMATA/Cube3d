@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:49:17 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/24 19:06:14 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 17:17:13 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int	cub_mouse_hook(int x, int y, void *param)
 	m = (t_cub *)param;
 	if (m->mlx)
 	{
-		//if (BONUS)
-			cub_do_hook_mouse(m, x, y);
+		cub_do_hook_mouse(m, x, y);
 	}
 	return (0);
 }
@@ -41,7 +40,6 @@ int	cub_render_hook(void *param)
 
 	m = (t_cub *)param;
 	m->seed = 10;
-	// a voir cub_clear_window(m, COLOR_BLACK);
 	cub_render(m);
 	mlx_put_image_to_window(m->mlx, m->window, m->image, 0, 0);
 	return (0);

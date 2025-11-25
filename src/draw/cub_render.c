@@ -6,13 +6,13 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:53:25 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/21 18:22:48 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 17:15:40 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static unsigned int get_texture_pixel(t_img *t, int x, int y)
+static unsigned int	get_texture_pixel(t_img *t, int x, int y)
 {
 	char	*pixel;
 
@@ -27,20 +27,10 @@ static unsigned int get_texture_pixel(t_img *t, int x, int y)
 	pixel = t->addr + (y * t->size_line + (x * (t->bpp / 8)));
 	return (*(unsigned int *) pixel);
 }
-// static int	get_texture_color(t_cub *m)
-// {
-// 	int color =  0xff00ff;
-// 	if (m->rec.face == FACE_NORTH)
-// 		color = 0xff0000;
-// 	if (m->rec.face == FACE_EAST)
-// 		color = 0x008000;
-// 	if (m->rec.face == FACE_WEST)
-// 		color = 0x000080;
-// 	return (color);
-// }
+
 static int	cub_draw_v_wall(t_cub *m, int x)
 {
-	int 	color;
+	int		color;
 	double	step;
 	t_img	*texture;
 	double	texture_position;
@@ -48,20 +38,16 @@ static int	cub_draw_v_wall(t_cub *m, int x)
 
 	texture = &m->texture[m->rec.face];
 	step = cub_div((double)texture->h, m->rec.line_height);
-	// cub_print_var_d("t", (double)texture->h);
-	// cub_print_var_d("u", m->rec.line_height);
-	// cub_print_var_d("s", step);
-	texture_position = (m->rec.draw_begin - m->height / 2 + m->rec.line_height / 2) * step;
+	texture_position = \
+		(m->rec.draw_begin - m->height / 2 + m->rec.line_height / 2) * step;
 	y = m->rec.draw_begin;
 	while (y <= m->rec.draw_end)
 	{
 		texture_position += step;
-		//color = get_texture_pixel(texture, m->rec.p.x, texture_position);
 		color = get_texture_pixel(texture, m->rec.texture_x, texture_position);
 		cub_putpixel(m, x, y, color);
 		y++;
 	}
-	//cub_print_var_d("x", m->rec.texture_x);
 	return (y);
 }
 
@@ -69,14 +55,9 @@ static	void	cub_draw_vertical_line(t_cub *m, int x)
 {
 	int	y;
 
-	//m->rec.line_height = /*(int)*/(m->height / m->rec.t); // peut etre a 0 a proteger
 	m->rec.line_height = cub_div(m->height, m->rec.t);
-	// cub_print_var_d("t", m->height);
-	// cub_print_var_d("u", m->rec.t);
-	// cub_print_var_d("s", m->rec.line_height);
 	m->rec.draw_begin = (m->height - m->rec.line_height) / 2;
 	m->rec.draw_end = (m->height + m->rec.line_height) / 2;
-
 	y = 0;
 	while (y < m->rec.draw_begin)
 		cub_putpixel(m, x, y++, m->color_ceiling);

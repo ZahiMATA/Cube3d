@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 15:02:12 by ybouroga          #+#    #+#              #
-#    Updated: 2025/11/24 22:14:16 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/11/25 17:08:55 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,9 +69,7 @@ SRCS_COMMON = \
   $(SRC_DIR)/math/cub_vec4.c \
   $(SRC_DIR)/scene/cub_camera.c \
   $(SRC_DIR)/draw/cub_render.c \
-  $(SRC_DIR)/color/cub_color.c \
   $(SRC_DIR)/debug/cub_debug.c \
-  $(SRC_DIR)/color/cub_convert_color.c \
   $(SRC_DIR)/math/cub_hit_record.c \
   $(SRC_DIR)/math/cub_convert.c \
   $(SRC_DIR)/math/cub_random.c \

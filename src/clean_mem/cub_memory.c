@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 16:35:45 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/25 16:55:07 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 17:04:55 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ static void	cub_free_image_window_mlx(t_cub *m)
 	}
 }
 
+/* Same as :
+  free((*m)->map);
+  (*m)->map = NULL;
+  free(*m);
+  (*m) = NULL;
+*/
 static void	cub_free_array(char	***tab)
 {
 	int	i;
@@ -57,50 +63,16 @@ static void	cub_free_array(char	***tab)
 	*tab = NULL;
 }
 
-/* Same as :
-  free((*m)->map);
-  (*m)->map = NULL;
-  free(*m);
-  (*m) = NULL;
-*/
-void	cub_free_tokens(char ***tokens_ptr)
-{
-	char **tokens = *tokens_ptr;
-	int	i;
-
-	if (tokens == NULL)
-		return ;
-	i = 0;
-	while (tokens[i] != NULL)
-	{
-		free(tokens[i]);
-		tokens[i] = NULL;
-		i++;
-	}
-	free(tokens);
-	*tokens_ptr = NULL;
-}
-
 void	cub_free_all(t_cub **m)
 {
 	if (m == NULL || *m == NULL)
 		return ;
 	cub_free_array(&(*m)->map);
 	get_next_line(FREE_STASH);
-	//cub_free_null((void **)&(*m)->rt_file_line);
-	//close((*m)->fd_rt_file);
 	cub_free_null((void **)&(*m)->sphere);
 	cub_free_null((void **)&(*m)->plane);
 	cub_free_null((void **)&(*m)->cylinder);
 	cub_free_image_window_mlx(*m);
-	// TODO cub_free_null((void **) &((*m)->points));
-
-	// cub_free_null((void **)&(*m)->file_texture[FACE_NORTH]);
-	// cub_free_null((void **)&(*m)->file_texture[FACE_WEST]);
-	// cub_free_null((void **)&(*m)->file_texture[FACE_SOUTH]);
-	// cub_free_null((void **)&(*m)->file_texture[FACE_EAST]);
-
-
 	cub_free_null((void **) m);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:04:54 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/21 17:05:24 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 17:11:20 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,14 @@ void	cub_print_color(char *s, t_vec3 v)
 
 void	cub_debug_camera(t_cub *m)
 {
+	t_camera	c;
+	int			lig;
+
 	if (DEBUG)
 	{
-		t_camera	c;
-		int			lig;
-
 		c = m->camera;
 		cub_print_var_d("width ", m->width);
 		cub_print_var_d("height", m->height);
-		cub_print_var_d("viewport_h       ", m->viewport_h);
 		cub_print_var_d("fov angle        ", c.fov_angle);
 		cub_print_var_d("tan fov angle    ", c.tan_fov);
 		cub_print_var_d("map width        ", m->map_width);
