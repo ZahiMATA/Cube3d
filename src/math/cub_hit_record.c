@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/25 19:05:58 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 19:14:43 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 	int 	lig;
 	double	delta_dist_x;
 	double	delta_dist_y;
-	int		step_x;
-	int		step_y;
+	t_vec2	step;
+	// int		step_x;
+	// int		step_y;
 	double	side_dist_x;
 	double	side_dist_y;
 	int		side;
@@ -37,22 +38,22 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 		delta_dist_y = MAX_DOUBLE;
 	if(r.dir.x < 0)
 	{
-		step_x = -1;
+		step.x = -1;
 		side_dist_x = (r.origin.x - col) * delta_dist_x;
 	}
 	else
 	{
-		step_x = 1;
+		step.x = 1;
 		side_dist_x = (col + 1.0 - r.origin.x) * delta_dist_x;
 	}
 	if (r.dir.y < 0)
 	{
-		step_y = -1;
+		step.y = -1;
 		side_dist_y = (r.origin.y - lig) * delta_dist_y;
 	}
 	else
 	{
-		step_y = 1;
+		step.y = 1;
 		side_dist_y = (lig + 1.0 - r.origin.y) * delta_dist_y;
 	}
 	while (1)
@@ -60,9 +61,9 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 		if (side_dist_x < side_dist_y)
 		{
 			side_dist_x += delta_dist_x;
-			col += step_x;
+			col += step.x;
 			side = SIDE_VERTICAL;
-			if (step_x == 1)
+			if (step.x == 1)
 				rec->face = FACE_EAST;
 			else
 				rec->face = FACE_WEST;
@@ -70,9 +71,9 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 		else
 		{
 			side_dist_y += delta_dist_y;
-			lig += step_y;
+			lig += step.y;
 			side = SIDE_HORIZONTAL;
-			if (step_y == 1)
+			if (step.y == 1)
 				rec->face = FACE_NORTH;
 			else
 				rec->face = FACE_SOUTH;
