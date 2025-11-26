@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:42:41 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/24 17:55:20 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/26 17:35:46 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	cub_do_hook_key(t_cub *m, int keycode)
 	if (keycode == XK_Escape)
 		mlx_loop_end(m->mlx);
 	if (keycode == XK_a)
-		cub_move_side(&m->player, m->player_dir, -MOVE_STEP);
+		cub_move_side(m, &m->player, m->player_dir, -MOVE_STEP);
 	if (keycode == XK_d)
-		cub_move_side(&m->player, m->player_dir, MOVE_STEP);
+		cub_move_side(m, &m->player, m->player_dir, MOVE_STEP);
 	if (keycode == XK_w)
-		cub_move_forward(&m->player, m->player_dir, MOVE_STEP);
+		cub_move_forward(m, &m->player, m->player_dir, MOVE_STEP);
 	if (keycode == XK_s)
-		cub_move_forward(&m->player, m->player_dir, -MOVE_STEP);
+		cub_move_forward(m, &m->player, m->player_dir, -MOVE_STEP);
 	if (keycode == XK_Left)
 		m->player_dir = cub_rotate_xy(m, m->player_dir, -ANGLE_STEP);
 	if (keycode == XK_Right)

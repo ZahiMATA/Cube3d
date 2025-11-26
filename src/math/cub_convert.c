@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:06:38 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/25 18:45:48 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/26 18:30:27 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,34 @@ t_vec2	cub_rotate_xy(t_cub *m, t_vec2 p, double angle)
 	return (q);
 }
 
-void	cub_move_forward(t_vec2 *p, t_vec2 dir, double step)
+void	cub_move_forward(t_cub *m, t_vec2 *p, t_vec2 dir, double step)
 {
-	p->x = p->x + dir.x * step;
-	p->y = p->y + dir.y * step;
+	t_vec2	q;
+
+	q.x = p->x + dir.x * step;
+	q.y = p->y + dir.y * step;
+	// cub_print_var_d("x", q.x);
+	// cub_print_var_d("y", q.y);
+
+	if (q.x < 1 + EPSILON|| q.y < 1 + EPSILON|| q.x >= m->map_width - 1 - EPSILON|| q.y >= m->map_width - 1 - EPSILON)
+		return ;
+	*p = q;
+	cub_print_var_d("px", p->x);
+	cub_print_var_d("py", p->y);
 }
 
-void	cub_move_side(t_vec2 *p, t_vec2 dir, double step)
+void	cub_move_side(t_cub *m, t_vec2 *p, t_vec2 dir, double step)
 {
 	t_vec2	side;
 
 	side.x = -dir.y;
 	side.y = dir.x;
-	return (cub_move_forward(p, side, step));
+	return (cub_move_forward(m, p, side, step));
 }
 
 double	cub_div(double x, double y)
 {
-	if (y == 0)
+	if (y < EPSILON)
 		y = EPSILON;
 	return (x / y);
 }

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:53:25 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/25 17:15:40 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/26 17:40:32 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ static	void	cub_draw_vertical_line(t_cub *m, int x)
 	int	y;
 
 	m->rec.line_height = cub_div(m->height, m->rec.t);
+	// cub_print_var_d("c", m->rec.line_height);
+	// cub_print_var_d("t", m->rec.t);
 	m->rec.draw_begin = (m->height - m->rec.line_height) / 2;
 	m->rec.draw_end = (m->height + m->rec.line_height) / 2;
 	y = 0;
@@ -77,6 +79,6 @@ void	cub_render(t_cub *m)
 		if (cub_hit_grid(m, m->ray, &m->rec))
 			cub_draw_vertical_line(m, x);
 		x++;
-		cub_putpixel(m, x, x, 0xff00ff);
+		//cub_putpixel(m, x, x, 0xff00ff);
 	}
 }
