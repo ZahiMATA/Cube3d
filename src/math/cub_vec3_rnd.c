@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:25:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/18 19:41:01 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/26 14:57:07 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_vec3	vec3_rnd_unit(t_cub *m)
 	}
 }
 
-
 // t_vec3	vec3_rnd_unit(t_cub *m)
 // {
 // 	double z = random_double_range(m, -1.0, 1.0);
@@ -49,7 +48,6 @@ t_vec3	vec3_rnd_unit(t_cub *m)
 // 	double y = r * sin(a);
 // 	return vec3_init(x, y, z, 0.0);
 // }
-
 
 t_vec3 random_on_hemisphere(t_cub *m, const t_vec3 normal)
 {

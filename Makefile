@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/14 12:46:13 by ybouroga          #+#    #+#              #
-#    Updated: 2025/11/25 18:39:11 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/11/26 15:06:31 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,8 @@ OBJS_NO_BONUS := $(SRCS_NO_BONUS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 SRCS_BONUS_MODE := $(SRCS_COMMON) $(SRCS_BONUS)
 OBJS_BONUS := $(SRCS_BONUS_MODE:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
+MLX_LIB = $(MLX_DIR)/$(LIB_MLX)
+
 all: $(NAME)
 bonus: $(NAME_BONUS)
 
@@ -68,7 +70,7 @@ clean:
 fclean: clean
 	$(RM) $(NAME) $(NAME_BONUS)
 
-re: fclean all
+re: fclean all bonus
 
 include mk/targets.mk
 

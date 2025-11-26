@@ -6,13 +6,13 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/26 14:53:23 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/26 14:54:53 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void set_delta_dist(t_cub_hit_record *t, const t_ray *r)
+static void	set_delta_dist(t_cub_hit_record *t, const t_ray *r)
 {
 	t->col = (int) r->origin.x;
 	t->lig = (int) r->origin.y;
@@ -79,16 +79,6 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 	t_cub_hit_record	t;
 
 	set_delta_dist(&t, &r);
-	// t.col = (int) r.origin.x;
-	// t.lig = (int) r.origin.y;
-	// if (r.dir.x)
-	// 	t.delta_dist.x = fabs(1.0 / r.dir.x);
-	// else
-	// 	t.delta_dist.x = MAX_DOUBLE;
-	// if (r.dir.y)
-	// 	t.delta_dist.y = fabs(1.0 / r.dir.y);
-	// else
-	// 	t.delta_dist.y = MAX_DOUBLE;
 	set_step_side_dist(&t, &r);
 	while (1)
 	{
@@ -111,5 +101,5 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 	// if ( (side==0 && r.dir.x>0) || (side==1 && r.dir.y<0) )
 	// 	rec->texture_x  = m->texture->w - rec->texture_x - 1;
 	// //cub_print_var_d("x", 1);
-	return true;
+	return (true);
 }
