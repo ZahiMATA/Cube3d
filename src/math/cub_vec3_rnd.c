@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_vec4_rnd.c                                     :+:      :+:    :+:   */
+/*   cub_vec3_rnd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:25:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/26 14:57:07 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/26 15:47:56 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_vec3	vec3_rnd_dbl(t_cub *m)
 
 t_vec3	vec3_rnd_dbl_rng(t_cub *m, double min, double max)
 {
-	return ( vec3_init( \
+	return (vec3_init(\
 		random_double_range(m, min, max), \
 		random_double_range(m, min, max), \
 		random_double_range(m, min, max)));
@@ -49,7 +49,7 @@ t_vec3	vec3_rnd_unit(t_cub *m)
 // 	return vec3_init(x, y, z, 0.0);
 // }
 
-t_vec3 random_on_hemisphere(t_cub *m, const t_vec3 normal)
+t_vec3	random_on_hemisphere(t_cub *m, const t_vec3 normal)
 {
 	t_vec3	ret;
 
