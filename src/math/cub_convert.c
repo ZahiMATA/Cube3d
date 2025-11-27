@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:06:38 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/26 18:30:27 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 14:19:20 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,15 @@ void	cub_move_forward(t_cub *m, t_vec2 *p, t_vec2 dir, double step)
 	q.y = p->y + dir.y * step;
 	// cub_print_var_d("x", q.x);
 	// cub_print_var_d("y", q.y);
-
-	if (q.x < 1 + EPSILON|| q.y < 1 + EPSILON|| q.x >= m->map_width - 1 - EPSILON|| q.y >= m->map_width - 1 - EPSILON)
+	if (q.x < 1 + EPSILON|| q.y < 1 + EPSILON||\
+		 q.x >= m->map_width - 1 - EPSILON|| q.y >= m->map_height - 1 - EPSILON)
 		return ;
+	if (test_collision_mur(m, &q, dir))
+		return ;
+
 	*p = q;
-	cub_print_var_d("px", p->x);
-	cub_print_var_d("py", p->y);
+	// cub_print_var_d("px", p->x);
+	// cub_print_var_d("py", p->y);
 }
 
 void	cub_move_side(t_cub *m, t_vec2 *p, t_vec2 dir, double step)

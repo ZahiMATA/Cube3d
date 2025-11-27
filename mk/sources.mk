@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 15:02:12 by ybouroga          #+#    #+#              #
-#    Updated: 2025/11/26 14:59:20 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/11/27 14:15:03 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,8 @@ SRCS_COMMON = \
 
 SRCS_NO_BONUS = \
   $(SRC_DIR)/hook/cub_hook_mouse.c \
+  $(SRC_DIR)/math/cub_collision_mur.c \
 
 SRCS_BONUS = \
   $(SRC_DIR)/hook/cub_hook_mouse_bonus.c \
+  $(SRC_DIR)/math/cub_collision_mur_bonus.c \

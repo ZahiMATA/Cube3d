@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:53:25 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/26 17:40:32 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 13:43:01 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	cub_draw_v_wall(t_cub *m, int x)
 	while (y <= m->rec.draw_end)
 	{
 		texture_position += step;
-		color = get_texture_pixel(texture, m->rec.texture_x, texture_position);
+		color = get_texture_pixel(texture, m->rec.texture_x, (int)texture_position);
 		cub_putpixel(m, x, y, color);
 		y++;
 	}

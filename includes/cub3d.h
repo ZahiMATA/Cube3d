@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/25 20:47:08 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 14:11:11 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <stdbool.h>
+// # include <stdbool.h>
 # include <stddef.h>
 # include <X11/keysym.h>
 

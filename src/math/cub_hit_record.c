@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/26 17:10:41 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 13:48:40 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 		rec->texture_x = m->texture->w * (rec->p.x - floor(rec->p.x));
 	// if ( (side==0 && r.dir.x>0) || (side==1 && r.dir.y<0) )
 	// 	rec->texture_x  = m->texture->w - rec->texture_x - 1;
-	// if (rec->t < EPSILON)
-	// 	rec->t = EPSILON;
+	if (rec->t < EPSILON)
+		rec->t = EPSILON;
 	//cub_print_var_d("x", rec->t );
 	return (true);
 }
