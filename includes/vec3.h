@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 20:06:43 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/25 20:48:57 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 17:34:25 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,17 @@ typedef union s_vec2
 	double	v[2];
 }	t_vec2;
 
-// typedef struct s_dim2
-// {
-// 	int	col;
-// 	int	lig;
-// }	t_dim2;
+typedef union s_dim2
+{
+	struct {
+		int	v0;
+		int	v1;
+	};
+	struct {
+		int	x;
+		int	y;
+	};
+}	t_dim2;
 
 typedef union s_vec3
 {
