@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 19:09:50 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 19:21:54 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,42 +76,33 @@ static void	set_rec_face(t_cub_hit_record *t, t_hit_record *rec)
 	}
 }
 
+// calculate_min_dist_before_hide_wall
+static double	calc_wall(t_cub_hit_record *t)
+{
+	double t_next;
+
+	if (t->side == SIDE_VERTICAL)
+		t_next = t->side_dist.x - t->delta_dist.x;
+	else
+		t_next = t->side_dist.y - t->delta_dist.y;
+	return (t_next);
+}
+
 bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 {
 	t_cub_hit_record	t;
 
 	set_delta_dist(&t, &r);
 	set_step_side_dist(&t, &r);
-
 	while (1)
 	{
 		set_rec_face(&t, rec);
-
-// if (m->map[t.lig][t.col] == CHAR_1)
-// {
-//     // Move to the next DDA step immediately
-//     if (t.side_dist.x < t.side_dist.y)
-//         t.side_dist.x += t.delta_dist.x, t.col += t.step.x;
-//     else
-//         t.side_dist.y += t.delta_dist.y, t.lig += t.step.y;
-// }
-
 		if (t.col < 0 || t.col >= m->map_width \
 			|| t.lig < 0 || t.lig >= m->map_height)
 			return (false);
-
-    double t_next;
-	double MIN_DIST = 0.1;
-    if (t.side == SIDE_VERTICAL)
-        t_next = t.side_dist.x - t.delta_dist.x;
-    else
-        t_next = t.side_dist.y - t.delta_dist.y;
-
-
-		if (m->map[t.lig][t.col] == CHAR_1 && t_next >= MIN_DIST)
+		if (m->map[t.lig][t.col] == CHAR_1 && calc_wall(&t) >= MIN_DIST)
 			break ;
 	}
-
 	if (t.side == SIDE_VERTICAL)
 		rec->t = (t.side_dist.x - t.delta_dist.x);
 	else
@@ -121,10 +112,7 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 		rec->texture_x = m->texture->w * (rec->p.y - floor(rec->p.y));
 	else
 		rec->texture_x = m->texture->w * (rec->p.x - floor(rec->p.x));
-	// if ( (side==0 && r.dir.x>0) || (side==1 && r.dir.y<0) )
-	// 	rec->texture_x  = m->texture->w - rec->texture_x - 1;
 	if (rec->t < EPSILON)
 		rec->t = EPSILON;
-	//cub_print_var_d("x", rec->t );
 	return (true);
 }
