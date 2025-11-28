@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:33:53 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 12:07:14 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:18:20 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 void	mrt(char *filepath)
 {
-	t_cub *m;
+	t_cub	*m;
+
 	cub_init(&m, filepath);
 	m->camera.max_depth = 10;
 	cub_draw_window(m);

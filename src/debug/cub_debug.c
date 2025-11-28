@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:04:54 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 16:01:49 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:11:43 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	cub_print_player_dir(t_cub *m)
 		printf("X");
 }
 
-static void cub_show_map(t_cub *m)
+static void	cub_show_map(t_cub *m)
 {
 	int	col;
 	int	lig;

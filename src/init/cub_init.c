@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 16:06:51 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:16:41 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	cub_basic_init(t_cub **m)
 {
-	int		angle;
 	char	**map;
 	int		y;
 
@@ -32,8 +31,7 @@ void	cub_basic_init(t_cub **m)
 	(*m)->map_height = 5;
 	(*m)->color_ceiling = 0x0000FF;
 	(*m)->color_floor = 0x008000;
-	angle = 90;
-	(*m)->camera.fov_angle = angle;
+	(*m)->camera.fov_angle = ANGLE_FOV;
 	int ys = 3;
 	int xs = 1;
 	(*m)->player.x = xs + C_0_5;

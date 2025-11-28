@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 15:56:46 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:22:25 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ static void	set_delta_dist(t_cub_hit_record *t, const t_ray *r)
 		t->delta_dist.y = fabs(1.0 / r->dir.y);
 	else
 		t->delta_dist.y = MAX_DOUBLE;
-	// cub_print_var_d("X", t->delta_dist.x );
-	// cub_print_var_d("Y", t->delta_dist.y );
 }
 
 static void	set_step_side_dist(t_cub_hit_record *t, const t_ray *r)
@@ -76,7 +74,7 @@ static void	set_rec_face(t_cub_hit_record *t, t_hit_record *rec)
 	}
 }
 
-char get_map(const t_cub *m, int lig, int col)
+char	get_map(const t_cub *m, int lig, int col)
 {
 	return (m->map[m->map_height - 1 - lig][col]);
 }
@@ -93,7 +91,7 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 		if (t.col < 0 || t.col >= m->map_width \
 			|| t.lig < 0 || t.lig >= m->map_height)
 			return (false);
-		if (get_map(m, t.lig, t.col)  == CHAR_1)
+		if (get_map(m, t.lig, t.col) == CHAR_1)
 			break ;
 	}
 	if (t.side == SIDE_VERTICAL)

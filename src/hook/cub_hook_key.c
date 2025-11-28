@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:42:41 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 13:23:42 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:14:48 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	cub_do_hook_key_2(t_cub *m)
 {
-	double speed;
+	double	speed;
 
 	speed = MOVE_STEP / SCREEN_RATIO;
 	if (m->key[KEY_ESC])

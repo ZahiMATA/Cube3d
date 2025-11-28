@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 15:50:53 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:20:20 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@
 # define C_255_999  255.999f
 # define PI 3.14159265358979323846
 # define CAMERA_MAX_DEPTH 10
+# define ANGLE_FOV 90
 # define EPSILON .001
 # define EPSILON_MUR .001
 # define C_0_5 0.5

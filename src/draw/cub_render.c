@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:53:25 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 14:41:34 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:13:22 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,13 @@ static int	cub_draw_v_wall(t_cub *m, int x)
 
 	texture = &m->texture[m->rec.face];
 	step = cub_div((double)texture->h, m->rec.line_height);
-	// if (step < EPSILON/5)
-	// 	step = EPSILON/5;
-	// cub_print_var_d("step", step);
 	texture_position = \
 		(m->rec.draw_begin - m->height / 2 + m->rec.line_height / 2) * step;
 	y = m->rec.draw_begin;
 	while (y <= m->rec.draw_end)
 	{
 		texture_position += step;
-		color = get_texture_pixel(texture, m->rec.texture_x, /*(int)*/texture_position);
+		color = get_texture_pixel(texture, m->rec.texture_x, texture_position);
 		cub_putpixel(m, x, y, color);
 		y++;
 	}
@@ -59,11 +56,9 @@ static	void	cub_draw_vertical_line(t_cub *m, int x)
 	int	y;
 
 	m->rec.line_height = cub_div(m->height, m->rec.t);
-	// cub_print_var_d("c", m->rec.line_height);
-	// cub_print_var_d("t", m->rec.t);
 	m->rec.draw_begin = (m->height - m->rec.line_height) / 2;
 	m->rec.draw_end = (m->height + m->rec.line_height) / 2;
-	 if (m->rec.draw_begin < 0)
+	if (m->rec.draw_begin < 0)
 		m->rec.draw_begin = 0;
 	if (m->rec.draw_end >= m->height)
 		m->rec.draw_end = m->height - 1;
@@ -86,6 +81,5 @@ void	cub_render(t_cub *m)
 		if (cub_hit_grid(m, m->ray, &m->rec))
 			cub_draw_vertical_line(m, x);
 		x++;
-		//cub_putpixel(m, x, x, 0xff00ff);
 	}
 }

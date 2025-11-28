@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 16:35:45 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 13:32:33 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:10:18 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,6 @@ void	cub_free_all(t_cub **m)
 		return ;
 	cub_free_array(&(*m)->map);
 	get_next_line(FREE_STASH);
-	// cub_free_null((void **)&(*m)->sphere);
-	// cub_free_null((void **)&(*m)->plane);
-	// cub_free_null((void **)&(*m)->cylinder);
 	cub_free_image_window_mlx(*m);
 	cub_free_null((void **) m);
 }
