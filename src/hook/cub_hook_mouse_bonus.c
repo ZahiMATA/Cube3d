@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 18:37:30 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/25 17:17:58 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 13:35:32 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	cub_do_hook_mouse(t_cub *m, int x, int y)
 		(void) y;
 		if (x != m->mouse.x)
 		{
-			dx = x - m->mouse.x;
+			dx = m->mouse.x - x;
 			m->player_dir = cub_rotate_xy(m, m->player_dir, ANGLE_MOUSE * dx);
 			m->mouse.x = x;
 		}
