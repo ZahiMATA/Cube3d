@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:04:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 13:32:12 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 13:37:59 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_cub
 	// t_cylinder			*cylinder;
 	// int					nb_cylinder;
 	t_hit_record		rec;
-	t_interval			inter;
+	// t_interval			inter;
 	unsigned int		seed;
 	char				**map;
 	int					map_width;

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:40:35 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/18 19:25:54 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 13:38:33 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@
 typedef struct s_param_sphere_hit // CHANGE TO t_param_hit ?
 {
 	t_ray			ray;
-	t_interval		inter;
+	//t_interval		inter;
 	t_hit_record	*rec;
-	int				i; // UNDERSTAND USAGE TO MAKE IT SPECIFIC TO SPHERE, PL, CY IF NECESSARY
+	//int				i; // UNDERSTAND USAGE TO MAKE IT SPECIFIC TO SPHERE, PL, CY IF NECESSARY
 
 }	t_param_sphere_hit;
 

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:04:54 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 13:30:30 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 13:48:56 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,31 @@ void	cub_print_vec(char *s, t_vec3 v)
 // 			v.v[2] * C_255_999);
 // }
 
+static void cub_show_map(t_cub *m)
+{
+	int	col=0;
+	int	lig;
+
+	lig = 0;
+	while (lig < m->map_height)
+	{
+		col = 0;
+		while (col < m->map_width)
+		{
+			if ((int)m->player.x == col && (int)m->player.y == lig)
+				printf("x");
+			else
+				printf("%c", m->map[lig][col]);
+			col++;
+		}
+		printf("\n");
+		lig++;
+	}
+}
+
 void	cub_debug_camera(t_cub *m)
 {
 	t_camera	c;
-	int			lig;
 
 	if (DEBUG)
 	{
@@ -49,9 +70,7 @@ void	cub_debug_camera(t_cub *m)
 		cub_print_var_d("map height       ", m->map_height);
 		cub_print_var_d("texture w        ", m->texture->w);
 		cub_print_var_d("texture h        ", m->texture->h);
-		lig = 0;
-		while (lig < m->map_height)
-			printf("%s\n", m->map[lig++]);
+		cub_show_map(m);
 		printf("\n");
 	}
 }
