@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 15:11:11 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 15:50:53 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@
 # define CAMERA_MAX_DEPTH 10
 # define EPSILON .001
 # define EPSILON_MUR .001
+# define C_0_5 0.5
 # define V_POINT 0
 # define V_VECTOR 1
 # define MOVE_STEP .03
