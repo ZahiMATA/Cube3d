@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:49:17 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 15:37:34 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 19:36:45 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	cub_render_hook(void *param)
 
 	m = (t_cub *)param;
 	m->seed = 10;
+	//cub_clear_window(m, COLOR_BLACK);
 	cub_do_hook_key_2(m);
 	cub_render(m);
 	mlx_put_image_to_window(m->mlx, m->window, m->image, 0, 0);

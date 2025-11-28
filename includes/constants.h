@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 19:24:13 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 12:37:05 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,12 @@ Example : cy 50.0,0.0,20.6 0.0,0.0,1.0 14.2 21.42 10,0,255\n"
 # define CAMERA_MAX_DEPTH 10
 # define VERY_LITTLE 0.001f
 # define EPSILON .001
-# define EPSILON_MUR .2
+# define EPSILON_MUR .001
 # define V_POINT 0
 # define V_VECTOR 1
 # define MOVE_STEP .01
 # define ANGLE_STEP .01
-# define ANGLE_MOUSE .015
+# define ANGLE_MOUSE .01
 # define HIT_0 0
 # define HIT_1 1
 # define CHAR_0 '0'

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:53:25 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 17:09:46 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 12:33:45 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ static	void	cub_draw_vertical_line(t_cub *m, int x)
 	// cub_print_var_d("t", m->rec.t);
 	m->rec.draw_begin = (m->height - m->rec.line_height) / 2;
 	m->rec.draw_end = (m->height + m->rec.line_height) / 2;
+	 if (m->rec.draw_begin < 0)
+		m->rec.draw_begin = 0;
+	if (m->rec.draw_end >= m->height)
+		m->rec.draw_end = m->height - 1;
 	y = 0;
 	while (y < m->rec.draw_begin)
 		cub_putpixel(m, x, y++, m->color_ceiling);
