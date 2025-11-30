@@ -6,11 +6,11 @@
 /*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:10 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/24 16:50:11 by zmata            ###   ########.fr       */
+/*   Updated: 2025/11/25 10:27:39 by zmata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "../parsing_main/parsing.h"
 
 void	print_tab(char **tab)
 {

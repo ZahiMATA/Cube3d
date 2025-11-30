@@ -6,11 +6,11 @@
 /*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:46 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/24 16:31:08 by zmata            ###   ########.fr       */
+/*   Updated: 2025/11/25 10:30:51 by zmata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "../../parsing_main/parsing.h"
 
 int	len_line_i(t_node **list_map, int which_line)
 {

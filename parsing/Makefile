@@ -8,19 +8,22 @@ INCLUDES := -Isrc -I.
 
 # Tous tes fichiers .c
 SRCS := \
-	src/parsing.c \
+	parsing_main/parsing.c \
+	parsing_main/parsing_loop.c \
 	divers/exit.c \
 	divers/gnl.c \
+	divers/gnl_2.c \
 	divers/divers.c \
 	verif_information_cub/verif_line.c \
 	verif_information_cub/verif_file/take_info_file.c \
 	verif_information_cub/verif_color/take_info_color.c \
+	verif_information_cub/verif_color/take_info_color_utils.c \
 	verif_information_cub/verif_map/check_map.c \
 	verif_information_cub/verif_map/list_chaine.c \
 	tableau_map/divers_map.c \
 	tableau_map/map_tableau.c \
-	tableau_map/floot_file_map.c
-
+	tableau_map/floot_file_map.c \
+	tableau_map/floot_file_2.c
 # Les .o correspondants (même dossier que le .c)
 OBJS := $(SRCS:.c=.o)
 

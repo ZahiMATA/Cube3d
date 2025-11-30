@@ -6,11 +6,11 @@
 /*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:04:31 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/24 16:17:34 by zmata            ###   ########.fr       */
+/*   Updated: 2025/11/25 10:28:42 by zmata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "../parsing_main/parsing.h"
 
 void	writer_error(char *str)
 {

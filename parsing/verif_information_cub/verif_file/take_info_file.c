@@ -6,11 +6,11 @@
 /*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:46 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/24 16:25:24 by zmata            ###   ########.fr       */
+/*   Updated: 2025/11/26 10:13:23 by zmata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "../../parsing_main/parsing.h"
 
 char	*ft_strdup_n(char *str, int debut, int fin)
 {
@@ -64,14 +64,14 @@ char	*verif_empty_file(char *line, int *index_start)
 	return (line_temp);
 }
 
-static void	set_texture(char **texture, char *path,
+void	set_texture(char **texture, char *path,
 			char **line, t_info_cub *t_info_line)
 {
 	if (*texture != NULL)
 	{
 		free(path);
 		free(*line);
-		exit_prog("Un doublon a etais repere", t_info_line);
+		exit_prog("doublon ou probleme de nom de fichier", t_info_line);
 	}
 	*texture = ft_strdup(path);
 }
@@ -86,7 +86,7 @@ void	take_info_file(char **line, int *who_info,
 	if (!path)
 	{
 		free(*line);
-		exit_prog("Un doublon a etais repere", t_info_line);
+		exit_prog("doublon ou probleme de nom de fichier", t_info_line);
 	}
 	if (*who_info == 1)
 		set_texture(&t_info_line->nort_texture, path, line, t_info_line);

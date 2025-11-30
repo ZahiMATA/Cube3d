@@ -6,11 +6,11 @@
 /*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:02:30 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/24 16:23:06 by zmata            ###   ########.fr       */
+/*   Updated: 2025/11/26 10:20:19 by zmata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "../parsing_main/parsing.h"
 
 int	ft_strlen(char *str)
 {
@@ -36,6 +36,14 @@ char	*verif_start(char *str)
 	return (str);
 }
 
+static int	is_map_char(char c)
+{
+	if (c == '1' || c == '0' || c == 'N'
+		|| c == 'S' || c == 'E' || c == 'W')
+		return (1);
+	return (0);
+}
+
 int	what_info(char *str, int *who_info, int i)
 {
 	i = cut_space(str, &i);
@@ -49,22 +57,15 @@ int	what_info(char *str, int *who_info, int i)
 			*who_info = 3;
 		else if (str[i] == 'E' && str[i + 1] == 'A')
 			*who_info = 4;
-		if (*who_info != 0)
-			return (0);
 	}
-	if (str[i])
-	{
-		if (str[i] == 'F')
-			*who_info = 5;
-		else if (str[i] == 'C')
-			*who_info = 6;
-		else if (str[i] == '1' || str[i] == '0'
-			|| str[i] == 'N' || str[i] == 'S'
-			|| str[i] == 'E' || str[i] == 'W')
-			*who_info = 7;
-		if (*who_info != 0)
-			return (0);
-	}
+	if (*who_info == 0 && str[i] == 'F')
+		*who_info = 5;
+	else if (*who_info == 0 && str[i] == 'C')
+		*who_info = 6;
+	else if (*who_info == 0 && is_map_char(str[i]))
+		*who_info = 7;
+	if (*who_info != 0)
+		return (0);
 	return (-1);
 }
 
