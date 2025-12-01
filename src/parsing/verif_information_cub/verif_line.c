@@ -6,22 +6,22 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:02:30 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 13:13:22 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 15:12:57 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 #include "cub3d.h"
 
-// int	ft_strlen(char *str)
-// {
-// 	int	i;
+int	ft_strlen_z(char *str)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (str[i])
-// 		i++;
-// 	return (i);
-// }
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 char	*verif_start(char *str)
 {

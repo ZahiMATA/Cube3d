@@ -6,12 +6,11 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:10 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 13:05:31 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 14:55:50 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include "cub3d.h"
 
 static int	flood_check_err(int **vis, int lines)
 {
@@ -46,7 +45,7 @@ static int	**alloc_visited(t_info_cub *info)
 	y = 0;
 	while (y < info->nbr_line_tab)
 	{
-		len = ft_strlen(info->map[y]);
+		len = ft_strlen_z(info->map[y]);
 		vis[y] = malloc((len + 1) * sizeof(int));
 		if (!vis[y])
 			exit_prog("Erreur malloc visited", info);

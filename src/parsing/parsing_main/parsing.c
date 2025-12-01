@@ -6,12 +6,11 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:00:57 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 13:20:22 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 15:35:22 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include "cub3d.h"
 
 int	parsing(char *fichier_cub)
 {
@@ -31,7 +30,7 @@ int	parsing(char *fichier_cub)
 	last_verif(&t_info_line);
 	check_map_closed(&t_info_line);
 	print_struct(&t_info_line);
-	exit_prog("Fin du programme tous va bien !", &t_info_line);
+	//exit_prog("Fin du programme tous va bien !", &t_info_line);
 	return (0);
 }
 

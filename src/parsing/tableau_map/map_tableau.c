@@ -6,12 +6,11 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:46 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 13:08:05 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 14:55:23 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include "cub3d.h"
 
 void	take_in_table(t_node **liste_map, t_info_cub *t_info_line)
 {
@@ -27,7 +26,7 @@ void	take_in_table(t_node **liste_map, t_info_cub *t_info_line)
 	t_info_line->map[t_info_line->nbr_line_tab] = NULL;
 	while (which_line < t_info_line->nbr_line_tab)
 	{
-		t_info_line->map[which_line] = ft_strdup(
+		t_info_line->map[which_line] = ft_strdup_z(
 				return_line_i_to_liste(liste_map, which_line));
 		if (!t_info_line->map[which_line])
 		{

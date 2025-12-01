@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 14:28:42 by ybouroga          #+#    #+#              #
-#    Updated: 2025/11/28 17:44:30 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/12/01 15:33:13 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ TEST_FILE_1 = test_files/
 TEST_FILE_2 = Makefile
 TEST_FILE_3 = test_files/V3.rt
 TEST_FILE_4 = test_files/V4.rt
-TEST_FILE_5 = test_files/maps/maps.cub
+TEST_FILE_5 = test_files/maps/map_1.cub
+TEST_FILE_6 = test_files/maps/map_2.cub
 
 0:
 	clear && make && $(EXE) $(TEST_FILE_0)
@@ -37,6 +38,8 @@ TEST_FILE_5 = test_files/maps/maps.cub
 	clear && make && $(EXE) $(TEST_FILE_4)
 5:
 	clear && make && $(EXE) $(TEST_FILE_5)
+6:
+	clear && make && $(EXE) $(TEST_FILE_6)
 
 b:
 	clear && make bonus && $(EXE_BONUS) $(TEST_FILE_4)
@@ -71,4 +74,4 @@ git:
   test_files/* \
   && git commit -m "$(m)" && git push
 
-.PHONY: all bonus clean fclean re 0 1 2 3 4 5 debug asan vg vgb git
+.PHONY: all bonus clean fclean re 0 1 2 3 4 5 6 debug asan vg vgb git

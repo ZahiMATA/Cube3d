@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:16:33 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 12:50:44 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 15:10:04 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,28 @@ void	print_struct(t_info_cub *t_info_line)
 	print_tab(t_info_line->map);
 }
 
-// char	*ft_strdup(char *s)
-// {
-// 	int		i;
-// 	char	*tab;
+char	*ft_strdup_z(char *s)
+{
+	int		i;
+	char	*tab;
 
-// 	i = 0;
-// 	if (!s)
-// 		return (NULL);
-// 	while (s[i])
-// 		i++;
-// 	tab = malloc((i + 1) * sizeof(char));
-// 	if (!tab)
-// 		return (NULL);
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		tab[i] = s[i];
-// 		i++;
-// 	}
-// 	tab[i] = '\0';
-// 	return (tab);
-// }
+	i = 0;
+	if (!s)
+		return (NULL);
+	while (s[i])
+		i++;
+	tab = malloc((i + 1) * sizeof(char));
+	if (!tab)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		tab[i] = s[i];
+		i++;
+	}
+	tab[i] = '\0';
+	return (tab);
+}
 
 char	*remove_backslash_n(char *line)
 {

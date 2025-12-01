@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 15:01:59 by ybouroga          #+#    #+#              #
-#    Updated: 2025/12/01 12:57:40 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/12/01 15:08:41 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ HEADERS = \
   $(INC_DIR)/interval.h \
   $(INC_DIR)/get_next_line.h \
   $(INC_DIR)/parser.h \
+  $(INC_DIR)/parsing.h \
   $(INC_DIR)/cub_hit_record.h \
 
 

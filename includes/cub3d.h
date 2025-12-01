@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 17:55:33 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 15:01:05 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@
 # include "ray.h"
 # include "mat4.h"
 # include "camera.h"
-# include "parser.h"
+# include "parsing.h"
 # include "cub_hit_record.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-// # include <stdbool.h>
 # include <stddef.h>
 # include <X11/keysym.h>
 # include <sys/time.h>

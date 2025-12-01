@@ -6,12 +6,11 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 13:06:05 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/01 13:19:55 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 14:56:06 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include "cub3d.h"
 
 void	find_player(t_info_cub *info, int *py, int *px, int *count)
 {
@@ -42,7 +41,7 @@ void	flood_step(t_info_cub *info, int y, int x, int **vis)
 {
 	int	len;
 
-	len = ft_strlen(info->map[y]);
+	len = ft_strlen_z(info->map[y]);
 	if (x < 0 || x >= len)
 		return ;
 	if (info->map[y][x] == '1' || vis[y][x])
