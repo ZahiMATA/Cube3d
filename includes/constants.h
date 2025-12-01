@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 21:49:45 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 17:06:35 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define KEY_PRESS_MASK 1
 # define FREE_STASH -1
 # define MAX_DOUBLE	1e+30
+# define C_255_999  255.999f
 # define COLOR_BLACK 0x000000
 # define COLOR_WHITE 0xFFFFFF
 # define COLOR_GREY 0xAAAAAA
@@ -53,7 +54,7 @@
 # define V_VECTOR 1
 # define MOVE_STEP .02
 # define ANGLE_MOUSE .01
-# define CHAR_0 '0'
+//# define CHAR_0 '0'
 # define CHAR_1 '1'
 # define SIDE_VERTICAL 0
 # define SIDE_HORIZONTAL 1

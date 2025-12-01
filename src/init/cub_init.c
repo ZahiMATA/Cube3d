@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/01 13:54:19 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 18:03:54 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	cub_basic_init(t_cub **m)
 	while (y < 5)
 		map[y++] = ft_calloc(5 + 1, sizeof(char));
 	map[0][0] = '1'; map[0][1] = '1'; map[0][2] = '1'; map[0][3] = '1'; map[0][4] = '1';
-	map[1][0] = '1'; map[1][1] = '0'; map[1][2] = '1'; map[1][3] = '1'; map[1][4] = '1';
+	map[1][0] = '1'; map[1][1] = 'Y'; map[1][2] = '1'; map[1][3] = '1'; map[1][4] = '1';
 	map[2][0] = '1'; map[2][1] = '0'; map[2][2] = '0'; map[2][3] = '0'; map[2][4] = '1';
 	map[3][0] = '1'; map[3][1] = '0'; map[3][2] = '0'; map[3][3] = '0'; map[3][4] = '1';
 	map[4][0] = '1'; map[4][1] = '1'; map[4][2] = '1'; map[4][3] = '1'; map[4][4] = '1';
@@ -45,13 +45,74 @@ void	cub_basic_init(t_cub **m)
 	(*m)->file_texture[FACE_EAST] = "test_files/fe.xpm";
 }
 
+void	cub_basic_init_2(t_cub **m, t_info_cub c)
+{
+	char	**map;
+	int		y;
+	int		x;
+
+	map = ft_calloc(c.nbr_line_tab + 1, sizeof(char *));
+	if (map == NULL)
+		free_all(&c);
+	(*m)->map_width = 0;
+	(*m)->map_height = c.nbr_line_tab;
+	while (c.map[0][(*m)->map_width])
+		(*m)->map_width++;
+	y = 0;
+	while (y < (*m)->map_height)
+		map[y++] = ft_calloc((*m)->map_width + 1, sizeof(char));
+	y = 0;
+	while (y < (*m)->map_height)
+	{
+		x = 0;
+		while (x < (*m)->map_width)
+		{
+			map[y][x] = c.map[y][x];
+			x++;
+		}
+		y++;
+	}
+	(*m)->map = map;
+	(*m)->color_ceiling = color_v_to_int(c.ceiling_color);
+	(*m)->color_floor = color_v_to_int(c.floor_color);
+	(*m)->camera.fov_angle = ANGLE_FOV;
+	(*m)->player.x = c.player.x + C_0_5;
+	(*m)->player.y = (*m)->map_height - 1 - c.player.y + C_0_5;
+	if (c.player.z == 'N')
+	{
+		(*m)->player_dir.x = 0;
+		(*m)->player_dir.y = 1;
+	}
+	if (c.player.z == 'S')
+	{
+		(*m)->player_dir.x = 0;
+		(*m)->player_dir.y = -1;
+	}
+	if (c.player.z == 'E')
+	{
+		(*m)->player_dir.x = 1;
+		(*m)->player_dir.y = 0;
+	}
+	if (c.player.z == 'W')
+	{
+		(*m)->player_dir.x = -1;
+		(*m)->player_dir.y = 0;
+	}
+	(*m)->file_texture[FACE_NORTH] = ft_strdup(c.nort_texture);
+	(*m)->file_texture[FACE_WEST] = ft_strdup(c.west_texture);
+	(*m)->file_texture[FACE_SOUTH] = ft_strdup(c.south_texture);
+	(*m)->file_texture[FACE_EAST] = ft_strdup(c.east_texture);
+}
 void	cub_init(t_cub **m, char *filepath)
 {
+	t_info_cub t_info_line;
+
+	t_info_line = parsing(filepath);
 	*m = ft_calloc(1, sizeof(t_cub));
 	if (*m == NULL)
 		cub_exit(ERROR_MALLOC, *m);
-	cub_basic_init(m);
-	(void)filepath;
-	parsing(filepath);
+	// cub_basic_init(m);
+	cub_basic_init_2(m, t_info_line);
+	free_all(&t_info_line);
 	//cub_parser(m, filepath);
 }

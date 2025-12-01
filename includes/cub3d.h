@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/01 15:01:05 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 16:43:21 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ void		cub_do_hook_key_2(t_cub *m);
 int			cub_hook_key_pressed(int keycode, void *param);
 int			cub_hook_key_released(int keycode, void *param);
 int			get_key(int k);
+int			color_v_to_int(int rgb[]);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:04 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 14:54:42 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 17:49:35 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include "vec3.h"
 
 typedef struct s_gnl_state
 {
@@ -48,16 +49,17 @@ typedef struct s_info_cub
 	char	**map;
 	int		cmp_info;
 	int		nbr_line_tab;
+	t_vec3	player;
 }	t_info_cub;
 
 /* parsing / main */
-void	writer_error(char *str);
-int		parsing(char *fichier_cub);
-char	*verif_line(char *line, int *who_info, int *index_start);
-char	*verif_start(char *str);
-char	*ft_strdup_z(char *s);
-void	init_t_info_line(t_info_cub *t_info_line);
-void	last_verif(t_info_cub *t_info_line);
+void		writer_error(char *str);
+t_info_cub	parsing(char *fichier_cub);
+char		*verif_line(char *line, int *who_info, int *index_start);
+char		*verif_start(char *str);
+char		*ft_strdup_z(char *s);
+void		init_t_info_line(t_info_cub *t_info_line);
+void		last_verif(t_info_cub *t_info_line);
 
 /* parsing_loop */
 void	handle_map_line(char *line, t_info_cub *info);
@@ -119,5 +121,8 @@ char	*remove_backslash_n(char *line);
 /* divers map */
 void	print_tab(char **tab);
 void	free_tab(char **tab);
+
+void	free_all(t_info_cub *t_info_line);
+
 
 #endif

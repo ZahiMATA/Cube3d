@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 15:02:12 by ybouroga          #+#    #+#              #
-#    Updated: 2025/12/01 13:11:43 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/12/01 16:44:20 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,7 @@ SRCS_COMMON = \
   $(SRC_DIR)/math/cub_hit_record.c \
   $(SRC_DIR)/math/cub_convert.c \
   $(SRC_DIR)/math/cub_random.c \
+  $(SRC_DIR)/color/cub_convert_colors.c \
   $(SRC_DIR)/get_next_line/get_next_line.c \
   $(SRC_DIR)/get_next_line/get_next_line_utils.c \
   $(SRC_DIR)/hook/cub_hook_key.c \
