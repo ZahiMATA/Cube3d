@@ -1,0 +1,12 @@
+NO ./test_files/textures/text.xpm
+SO ./test_files/textures/text.xpm
+WE ./test_files/textures/text.xpm
+EA ./test_files/textures/text.xpm
+
+F 20,20,20
+C 200,200,200
+
+
+111
+1N1
+11

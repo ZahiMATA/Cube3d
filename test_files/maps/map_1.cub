@@ -1,12 +1,12 @@
-WE ./textures/text.xpm
+WE ./test_files/textures/text.xpm
 
 F        251		,  100, 4
-SO ./textures/text_2.xpm
+SO ./test_files/textures/text_2.xpm
 
-NO ./textures/text.xpm
+NO ./test_files/textures/text.xpm
 
    C 25 ,0 ,1
-EA ./textures/text_2.xpm
+EA ./test_files/textures/text_2.xpm
 
  1
 111111111111111111111

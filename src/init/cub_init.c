@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 18:08:43 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 13:54:19 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ void	cub_init(t_cub **m, char *filepath)
 		cub_exit(ERROR_MALLOC, *m);
 	cub_basic_init(m);
 	(void)filepath;
-	//parsing(filepath);
+	parsing(filepath);
 	//cub_parser(m, filepath);
 }

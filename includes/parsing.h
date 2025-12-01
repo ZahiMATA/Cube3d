@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:04 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 13:15:04 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 14:54:42 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	writer_error(char *str);
 int		parsing(char *fichier_cub);
 char	*verif_line(char *line, int *who_info, int *index_start);
 char	*verif_start(char *str);
-//char	*ft_strdup(char *s);
+char	*ft_strdup_z(char *s);
 void	init_t_info_line(t_info_cub *t_info_line);
 void	last_verif(t_info_cub *t_info_line);
 
@@ -108,12 +108,12 @@ void	exit_prog(char *str, t_info_cub *t_info_line);
 
 /* divers utils */
 void	print_struct(t_info_cub *t_info_line);
-//int		ft_strlen(char *str);
+int		ft_strlen_z(char *str);
 char	*ft_strdup_n(char *str, int debut, int fin);
 char	*get_next_linee(int fd);
 char	*ft_strdup_until(char *s, int n);
 int		ft_strlenn(char *s);
-//char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin_z(char *s1, char *s2);
 char	*remove_backslash_n(char *line);
 
 /* divers map */

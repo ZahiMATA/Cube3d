@@ -6,48 +6,47 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 12:56:00 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/01 13:15:51 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 14:48:44 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include "cub3d.h"
 
-// static void	copy_into(char *res, char *s1, char *s2)
-// {
-// 	int	i;
-// 	int	j;
+static void	copy_into(char *res, char *s1, char *s2)
+{
+	int	i;
+	int	j;
 
-// 	i = 0;
-// 	j = 0;
-// 	while (s1 && s1[i])
-// 	{
-// 		res[i] = s1[i];
-// 		i++;
-// 	}
-// 	while (s2 && s2[j])
-// 		res[i++] = s2[j++];
-// 	res[i] = '\0';
-// }
+	i = 0;
+	j = 0;
+	while (s1 && s1[i])
+	{
+		res[i] = s1[i];
+		i++;
+	}
+	while (s2 && s2[j])
+		res[i++] = s2[j++];
+	res[i] = '\0';
+}
 
-// char	*ft_strjoin(char *s1, char *s2)
-// {
-// 	int		len;
-// 	char	*res;
+char	*ft_strjoin_z(char *s1, char *s2)
+{
+	int		len;
+	char	*res;
 
-// 	len = ft_strlenn(s1) + ft_strlenn(s2);
-// 	res = malloc(len + 1);
-// 	if (!res)
-// 	{
-// 		free(s1);
-// 		free(s2);
-// 		return (NULL);
-// 	}
-// 	copy_into(res, s1, s2);
-// 	free(s1);
-// 	free(s2);
-// 	return (res);
-// }
+	len = ft_strlenn(s1) + ft_strlenn(s2);
+	res = malloc(len + 1);
+	if (!res)
+	{
+		free(s1);
+		free(s2);
+		return (NULL);
+	}
+	copy_into(res, s1, s2);
+	free(s1);
+	free(s2);
+	return (res);
+}
 
 int	ft_strlenn(char *s)
 {

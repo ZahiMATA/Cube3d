@@ -6,12 +6,11 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:04:39 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 12:52:09 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 14:52:45 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include "cub3d.h"
 
 int	fill_buffer(t_gnl_state *st, int fd)
 {
@@ -36,11 +35,11 @@ int	read_chunk(t_gnl_state *st, char **line)
 		st->index_buffer++;
 	chunk = ft_strdup_until(&st->buffer[start],
 			st->index_buffer - start);
-	*line = ft_strjoin(*line, chunk);
+	*line = ft_strjoin_z(*line, chunk);
 	if (st->index_buffer < st->nbr_octect_lu
 		&& st->buffer[st->index_buffer] == '\n')
 	{
-		*line = ft_strjoin(*line, ft_strdup_until("\n", 1));
+		*line = ft_strjoin_z(*line, ft_strdup_until("\n", 1));
 		st->index_buffer++;
 		return (1);
 	}
