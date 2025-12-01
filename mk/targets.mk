@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 14:28:42 by ybouroga          #+#    #+#              #
-#    Updated: 2025/12/01 16:20:42 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/12/01 18:18:30 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ vgb:
   --track-origins=yes \
   --trace-children=yes \
   --track-fds=yes \
-$(EXE_BONUS) $(TEST_FILE_0)
+$(EXE_BONUS) $(TEST_FILE_6)
 
 
 git:
