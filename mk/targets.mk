@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 14:28:42 by ybouroga          #+#    #+#              #
-#    Updated: 2025/12/01 15:33:13 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/12/01 18:18:30 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ debug: re
 asan: C_FLAGS += $(ASAN_FLAGS)
 asan: re
 
-TEST_FILE_0 = test_files/V0.rt
+TEST_FILE_0 = test_files/V0x.rt
 TEST_FILE_1 = test_files/
 TEST_FILE_2 = Makefile
 TEST_FILE_3 = test_files/V3.rt
@@ -42,7 +42,7 @@ TEST_FILE_6 = test_files/maps/map_2.cub
 	clear && make && $(EXE) $(TEST_FILE_6)
 
 b:
-	clear && make bonus && $(EXE_BONUS) $(TEST_FILE_4)
+	clear && make bonus && $(EXE_BONUS) $(TEST_FILE_6)
 
 vg:
 	clear && make && \
@@ -52,7 +52,7 @@ vg:
   --track-origins=yes \
   --trace-children=yes \
   --track-fds=yes \
-  $(EXE) $(TEST_FILE_0)
+  $(EXE) $(TEST_FILE_6)
 
 vgb:
 	clear && make bonus && \
@@ -62,7 +62,7 @@ vgb:
   --track-origins=yes \
   --trace-children=yes \
   --track-fds=yes \
-$(EXE_BONUS) $(TEST_FILE_0)
+$(EXE_BONUS) $(TEST_FILE_6)
 
 
 git:

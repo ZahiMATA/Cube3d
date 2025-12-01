@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 13:06:05 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/01 14:56:06 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 17:57:55 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ void	find_player(t_info_cub *info, int *py, int *px, int *count)
 			{
 				*py = y;
 				*px = x;
+				info->player.x = *px;
+				info->player.y = *py;
+				info->player.z = c;
 				(*count)++;
 			}
 			x++;
