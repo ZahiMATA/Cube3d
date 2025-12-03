@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 16:35:45 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/01 16:32:44 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:42:59 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void	cub_free_all(t_cub **m)
 	cub_free_null((void **)&(*m)->file_texture[FACE_WEST]);
 	cub_free_null((void **)&(*m)->file_texture[FACE_SOUTH]);
 	cub_free_null((void **)&(*m)->file_texture[FACE_EAST]);
-	//get_next_line(FREE_STASH);
 	cub_free_image_window_mlx(*m);
 	cub_free_null((void **) m);
 }
