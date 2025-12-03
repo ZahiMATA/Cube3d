@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 15:02:12 by ybouroga          #+#    #+#              #
-#    Updated: 2025/12/01 16:44:20 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/12/03 16:13:44 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,6 @@ SRCS_COMMON = \
   $(SRC_DIR)/parsing/tableau_map/divers_map.c \
   $(SRC_DIR)/parsing/tableau_map/map_tableau.c \
   $(SRC_DIR)/parsing/tableau_map/floot_file_map.c \
-  $(SRC_DIR)/parsing/tableau_map/floot_file_2.c \
   $(SRC_DIR)/math/cub_map_acces.c \
 
 SRCS_NO_BONUS = \
