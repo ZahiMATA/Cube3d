@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/03 13:22:20 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:44:15 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,28 +110,9 @@ static void	cub_init_map(t_cub **m, t_info_cub c)
 
 static void	cub_basic_init(t_cub **m, t_info_cub c)
 {
-//	(*m)->map = ft_calloc(c.nbr_line_tab + 1, sizeof(char *));
-//	if ((*m)->map == NULL)
-//		free_all(&c);
-	//(*m)->map_width = 5;
 	(*m)->map_height = c.nbr_line_tab;
-//	while (c.map[0][(*m)->map_width])
-//		(*m)->map_width++;
-//	cub_init_map(m, c);
 	(*m)->map = c.map;
 
-
-//(*m)->map_height = 5;
-//(*m)->map_width = 100;
-/*
-(*m)->map = ft_calloc(6, sizeof(char *));
-(*m)->map[0] = ft_strdup("11111");
-(*m)->map[1] = ft_strdup("10001");
-(*m)->map[2] = ft_strdup("10N01");
-(*m)->map[3] = ft_strdup("10001");
-(*m)->map[4] = ft_strdup("11111");
-(*m)->map[5] = NULL; // facultatif mais propre*/
-(*m)->map = c.map;
 
 	(*m)->color_ceiling = color_v_to_int(c.ceiling_color);
 	(*m)->color_floor = color_v_to_int(c.floor_color);
