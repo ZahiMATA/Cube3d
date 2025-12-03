@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:55:00 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/03 14:47:22 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:52:53 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	handle_map_line(char *line, t_info_cub *info)
 	if (info->cmp_info < 6)
 	{
 		free(line);
-		exit_prog("Nombre  ou ordre d information incorrect", info);
+		exit_prog(MSG_003, info);
 	}
 	if (check_map(line, &info->liste_map) == -1)
 	{
 		free(line);
-		exit_prog("Map non conforme", info);
+		exit_prog(MSG_004, info);
 	}
 	new_value(line, &info->liste_map);
 	info->cmp_info++;
@@ -59,8 +59,7 @@ void	process_non_empty(char *line, t_info_cub *info)
 	if (!line_tmp)
 	{
 		free(line);
-		exit_prog("impossible de trouver une des informations ou "
-			"information incorrect", info);
+		exit_prog(MSG_005, info);
 	}
 	line = line_tmp;
 	handle_info_line(line, who_info, &index_start, info);
@@ -74,7 +73,7 @@ void	process_line(char *line, t_info_cub *info)
 		if (info->liste_map != NULL)
 		{
 			free(line);
-			exit_prog("Une ligne de la map est vide", info);
+			exit_prog(MSG_006, info);
 		}
 		free(line);
 		return ;

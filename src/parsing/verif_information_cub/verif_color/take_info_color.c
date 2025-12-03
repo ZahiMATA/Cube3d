@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:46 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/03 15:02:45 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:59:50 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	get_value(char *tmp, char *line, t_info_cub *info)
 	{
 		free(tmp);
 		free(line);
-		exit_prog("Valeur RGB hors limites", info);
+		exit_prog(MSG_012, info);
 	}
 	return (val);
 }

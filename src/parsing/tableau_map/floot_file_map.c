@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:10 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/03 16:07:49 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:56:30 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ static int	**alloc_visited(t_info_cub *info)
 
 	vis = malloc(info->nbr_line_tab * sizeof(int *));
 	if (!vis)
-		exit_prog("Erreur malloc visited", info);
+		exit_prog(MSG_007, info);
 	y = 0;
 	while (y < info->nbr_line_tab)
 	{
 		len = ft_strlen_z(info->map[y]);
 		vis[y] = malloc(len * sizeof(int));
 		if (!vis[y])
-			exit_prog("Erreur malloc visited", info);
+			exit_prog(MSG_007, info);
 		x = 0;
 		while (x < len)
 		{
@@ -124,12 +124,12 @@ int	check_map_closed(t_info_cub *info)
 	count = 0;
 	find_player(info, &py, &px, &count);
 	if (count != 1)
-		exit_prog("Nombre de joueur invalide", info);
+		(MSG_009, info);
 	f.err = 0;
 	f.vis = alloc_visited(info);
 	flood(info, py, px, &f);
 	free_visited(f.vis, info->nbr_line_tab);
 	if (f.err)
-		exit_prog("Map non fermee", info);
+		exit_prog(MSG_008, info);
 	return (0);
 }

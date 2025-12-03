@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 14:28:42 by ybouroga          #+#    #+#              #
-#    Updated: 2025/12/01 18:18:30 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/12/03 16:22:14 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ TEST_FILE_0 = test_files/V0x.rt
 TEST_FILE_1 = test_files/
 TEST_FILE_2 = Makefile
 TEST_FILE_3 = test_files/V3.rt
-TEST_FILE_4 = test_files/V4.rt
-TEST_FILE_5 = test_files/maps/map_1.cub
-TEST_FILE_6 = test_files/maps/map_2.cub
+TEST_FILE_4 = test_files/maps/map_1.cub
+TEST_FILE_5 = test_files/maps/map_2.cub
+TEST_FILE_6 = test_files/maps/map_3.cub
 
 0:
 	clear && make && $(EXE) $(TEST_FILE_0)
