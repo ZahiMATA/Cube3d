@@ -48,7 +48,7 @@ static void	cub_show_map(t_cub *m)
 	while (lig < m->map_height)
 	{
 		col = 0;
-		while (col < m->map_width)
+		while (m->map[lig][col])
 		{
 			py = m->map_height - 1 - (int)m->player.y;
 			if ((int)m->player.x == col && py == lig)
@@ -61,6 +61,7 @@ static void	cub_show_map(t_cub *m)
 		lig++;
 	}
 	printf("[%d][%d][%f][%f]\n", col, lig, m->player.x, m->player.y);
+	printf("dir=[%f][%f]\n", m->player_dir.x, m->player_dir.y);
 }
 
 void	cub_debug_camera(t_cub *m)
