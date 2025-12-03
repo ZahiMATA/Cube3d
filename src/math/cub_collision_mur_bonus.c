@@ -20,10 +20,10 @@ int	test_collision_mur(t_cub *m, t_vec2 *q, t_vec2 dir)
 	int		y;
 
 	(void)dir;
-	_x.v0 = (int)(q->x - EPSILON_MUR);
-	_x.v1 = (int)(q->x + EPSILON_MUR);
-	_y.v0 = (int)(q->y - EPSILON_MUR);
-	_y.v1 = (int)(q->y + EPSILON_MUR);
+	_x.v0 = (int)(q->x + 00*EPSILON_MUR);
+	_x.v1 = (int)(q->x + 00*EPSILON_MUR);
+	_y.v0 = (int)(q->y + 00*EPSILON_MUR);
+	_y.v1 = (int)(q->y + 00*EPSILON_MUR);
 	y = _y.v0;
 	while (y <= _y.v1)
 	{

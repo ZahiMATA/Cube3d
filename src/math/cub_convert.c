@@ -42,9 +42,11 @@ void	cub_move_forward(t_cub *m, t_vec2 *p, t_vec2 dir, double step)
 		q.y < 1 + EPSILON_MUR || \
 		q.x >= m->map_width - 1 - EPSILON_MUR || \
 		q.y >= m->map_height - 1 - EPSILON_MUR)
+		return ;*/
+	if (is_inside_map(m, (int)floor(q.y), (int)floor(q.x)) == false)
 		return ;
 	if (test_collision_mur(m, &q, dir))
-		return ;*/
+		return ;
 	*p = q;
 }
 

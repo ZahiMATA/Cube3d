@@ -72,10 +72,10 @@ static void	cub_init_dir_texture(t_cub **m, t_info_cub c)
 		(*m)->player_dir.x = -1;
 		(*m)->player_dir.y = 0;
 	}
-	(*m)->file_texture[FACE_NORTH] = ft_strdup(c.nort_texture);
-	(*m)->file_texture[FACE_WEST] = ft_strdup(c.west_texture);
-	(*m)->file_texture[FACE_SOUTH] = ft_strdup(c.south_texture);
-	(*m)->file_texture[FACE_EAST] = ft_strdup(c.east_texture);
+	(*m)->file_texture[FACE_NORTH] = (c.nort_texture);
+	(*m)->file_texture[FACE_WEST] = (c.west_texture);
+	(*m)->file_texture[FACE_SOUTH] = (c.south_texture);
+	(*m)->file_texture[FACE_EAST] = (c.east_texture);
 }
 
 /*
@@ -113,7 +113,7 @@ static void	cub_basic_init(t_cub **m, t_info_cub c)
 //	(*m)->map = ft_calloc(c.nbr_line_tab + 1, sizeof(char *));
 //	if ((*m)->map == NULL)
 //		free_all(&c);
-	(*m)->map_width = 0;
+	//(*m)->map_width = 5;
 	(*m)->map_height = c.nbr_line_tab;
 //	while (c.map[0][(*m)->map_width])
 //		(*m)->map_width++;
@@ -121,16 +121,17 @@ static void	cub_basic_init(t_cub **m, t_info_cub c)
 	(*m)->map = c.map;
 
 
-(*m)->map_height = 5;
-(*m)->map_width = 5;
-
+//(*m)->map_height = 5;
+//(*m)->map_width = 100;
+/*
 (*m)->map = ft_calloc(6, sizeof(char *));
 (*m)->map[0] = ft_strdup("11111");
 (*m)->map[1] = ft_strdup("10001");
 (*m)->map[2] = ft_strdup("10N01");
 (*m)->map[3] = ft_strdup("10001");
 (*m)->map[4] = ft_strdup("11111");
-(*m)->map[5] = NULL; // facultatif mais propre
+(*m)->map[5] = NULL; // facultatif mais propre*/
+(*m)->map = c.map;
 
 	(*m)->color_ceiling = color_v_to_int(c.ceiling_color);
 	(*m)->color_floor = color_v_to_int(c.floor_color);
@@ -149,10 +150,10 @@ void	cub_init(t_cub **m, char *filepath)
 	if (*m == NULL)
 		cub_exit(ERROR_MALLOC, *m);
 	cub_basic_init(m, t_info_line);
-	free(t_info_line.nort_texture);
-	free(t_info_line.south_texture);
-	free(t_info_line.east_texture);
-	free(t_info_line.west_texture);
+	//free(t_info_line.nort_texture);
+	//free(t_info_line.south_texture);
+	//free(t_info_line.east_texture);
+	//free(t_info_line.west_texture);
 	free_list(t_info_line.liste_map);
 	//free_tab(t_info_line->map);
 }

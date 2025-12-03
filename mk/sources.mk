@@ -94,6 +94,7 @@ SRCS_COMMON = \
   $(SRC_DIR)/parsing/tableau_map/map_tableau.c \
   $(SRC_DIR)/parsing/tableau_map/floot_file_map.c \
   $(SRC_DIR)/parsing/tableau_map/floot_file_2.c \
+  $(SRC_DIR)/math/cub_map_acces.c \
 
 SRCS_NO_BONUS = \
   $(SRC_DIR)/hook/cub_hook_mouse.c \

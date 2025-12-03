@@ -18,5 +18,6 @@
 
 bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec);
 char	get_map(const t_cub *m, int lig, int col);
+int     is_inside_map(t_cub *m, int lig, int col);
 
 #endif
