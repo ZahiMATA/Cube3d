@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:04 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/03 15:00:11 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:01:09 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,20 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include "vec3.h"
+
+# define MSG_001 "Unable to open the file/incorrect extension"
+# define MSG_002 "incorrect information - last verification"
+# define MSG_003 "Incorrect number or order of information"
+# define MSG_004 "Non-compliant map"
+# define MSG_005 "Unable to find any information or incorrect information"
+# define MSG_006 "One line on the map is empty"
+# define MSG_007 "Malloc failed"
+# define MSG_008 "Map is not closed"
+# define MSG_009 "Invalid number of players"
+# define MSG_010 "Double array malloc problem"
+# define MSG_011 "A duplicate with an incorrect color or value"
+# define MSG_012 "RGB value out of range"
+# define MSG_013 "duplicate or file name problem"
 
 typedef struct s_gnl_state
 {
@@ -50,6 +64,7 @@ typedef struct s_info_cub
 	int		cmp_info;
 	int		nbr_line_tab;
 	t_vec3	player;
+	int		fd;
 }	t_info_cub;
 
 /* parsing / main */

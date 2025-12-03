@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:46 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/03 15:01:42 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:57:56 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	take_in_table(t_node **liste_map, t_info_cub *t_info_line)
 	if (!t_info_line->map)
 	{
 		free(t_info_line->map);
-		exit_prog("Probleme de malloc du double tabelau", t_info_line);
+		exit_prog(MSG_010, t_info_line);
 	}
 	t_info_line->map[t_info_line->nbr_line_tab] = NULL;
 	while (which_line < t_info_line->nbr_line_tab)
@@ -31,8 +31,7 @@ void	take_in_table(t_node **liste_map, t_info_cub *t_info_line)
 		if (!t_info_line->map[which_line])
 		{
 			free_tab(t_info_line->map);
-			exit_prog("Probleme de malloc de map d une ligne du"
-				" double tableau", t_info_line);
+			exit_prog(MSG_010, t_info_line);
 		}
 		which_line++;
 	}

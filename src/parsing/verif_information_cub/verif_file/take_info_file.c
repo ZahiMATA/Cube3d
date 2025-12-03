@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:46 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/03 15:05:18 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:00:56 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ char	*verif_empty_file(char *line, int *index_start)
 			|| line[ft_strlen_z(line) -4] != '.' || ft_strlen_z(line) <= 4))
 	{
 		free(line_temp);
+		close(fd);
 		return (NULL);
 	}
 	close(fd);
@@ -74,7 +75,7 @@ void	set_texture(char **texture, char *path,
 	{
 		free(path);
 		free(*line);
-		exit_prog("doublon ou probleme de nom de fichier", t_info_line);
+		exit_prog(MSG_013, t_info_line);
 	}
 	*texture = ft_strdup_z(path);
 }
@@ -89,7 +90,7 @@ void	take_info_file(char **line, int *who_info,
 	if (!path)
 	{
 		free(*line);
-		exit_prog("doublon ou probleme de nom de fichier", t_info_line);
+		exit_prog(MSG_013, t_info_line);
 	}
 	if (*who_info == 1)
 		set_texture(&t_info_line->nort_texture, path, line, t_info_line);

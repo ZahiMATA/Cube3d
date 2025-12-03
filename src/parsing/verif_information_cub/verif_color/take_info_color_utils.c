@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 11:22:48 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/03 15:02:23 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:59:18 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ void	color_error(char *line, char *tmp, t_info_cub *info)
 {
 	free(tmp);
 	free(line);
-	exit_prog("Un doublon de couleur ou valeur incorrecte", info);
+	exit_prog(MSG_011, info);
 }
