@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 13:00:58 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/01 17:11:31 by ybouroga         ###   ########.fr       */
+/*   Created: 2025/11/26 13:55:00 by zmata             #+#    #+#             */
+/*   Updated: 2025/12/03 14:47:22 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	handle_map_line(char *line, t_info_cub *info)
 	if (info->cmp_info < 6)
 	{
 		free(line);
-		exit_prog("Nombre ou ordre d information incorrect", info);
+		exit_prog("Nombre  ou ordre d information incorrect", info);
 	}
 	if (check_map(line, &info->liste_map) == -1)
 	{

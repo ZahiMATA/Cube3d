@@ -6,12 +6,11 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:46 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 13:12:36 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 15:05:18 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include "cub3d.h"
 
 char	*ft_strdup_n(char *str, int debut, int fin)
 {
@@ -56,7 +55,10 @@ char	*verif_empty_file(char *line, int *index_start)
 		(*index_start)++;
 	line_temp = ft_strdup_n(line, index_start_temp, *index_start);
 	fd = open(line_temp, O_RDONLY);
-	if (fd == -1)
+	if ((fd == -1) || (line[ft_strlen_z(line) -1] != 'm'
+			|| line[ft_strlen_z(line) -2] != 'p'
+			|| line[ft_strlen_z(line) -3] != 'x'
+			|| line[ft_strlen_z(line) -4] != '.' || ft_strlen_z(line) <= 4))
 	{
 		free(line_temp);
 		return (NULL);
@@ -74,7 +76,7 @@ void	set_texture(char **texture, char *path,
 		free(*line);
 		exit_prog("doublon ou probleme de nom de fichier", t_info_line);
 	}
-	*texture = ft_strdup(path);
+	*texture = ft_strdup_z(path);
 }
 
 void	take_info_file(char **line, int *who_info,

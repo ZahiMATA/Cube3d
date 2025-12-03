@@ -6,12 +6,11 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:02:30 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 15:12:57 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 15:11:43 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include "cub3d.h"
 
 int	ft_strlen_z(char *str)
 {
@@ -29,7 +28,7 @@ char	*verif_start(char *str)
 	int	len;
 
 	i = 0;
-	len = ft_strlen(str);
+	len = ft_strlen_z(str);
 	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 		i++;
 	if (i == len)
