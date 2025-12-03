@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:04 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/03 13:30:29 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 15:00:11 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ void	take_in_table(t_node **liste_map, t_info_cub *t_info_line);
 /* flood_fill map */
 int		check_map_closed(t_info_cub *info);
 void	flood_step(t_info_cub *info, int y, int x, int **vis);
-void	find_player(t_info_cub *info, int *py, int *px, int *count);
 
 /* exit / gestion mémoire globale */
 void	exit_prog(char *str, t_info_cub *t_info_line);

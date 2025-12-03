@@ -6,12 +6,11 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:46 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 13:13:05 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 15:06:40 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include "cub3d.h"
 
 int	len_line_i(t_node **list_map, int which_line)
 {
@@ -25,7 +24,7 @@ int	len_line_i(t_node **list_map, int which_line)
 	while (tmp != NULL)
 	{
 		if (z == which_line)
-			return (ft_strlen(tmp->line));
+			return (ft_strlen_z(tmp->line));
 		tmp = tmp->next;
 		z++;
 	}
@@ -40,7 +39,7 @@ void	new_value(char *new_line, t_node **list_map)
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return ;
-	new->line = ft_strdup(new_line);
+	new->line = ft_strdup_z(new_line);
 	new->next = NULL;
 	if (*list_map == NULL)
 	{
