@@ -1,19 +1,26 @@
 # cub3D
 
 cub3D est un projet graphique réalisé dans le cadre de l’École 42.
-L’objectif est de créer un moteur de rendu 3D en raycasting, inspiré de Wolfenstein 3D, en utilisant la MiniLibX.
+Il consiste à développer un moteur de rendu 3D en raycasting, inspiré de Wolfenstein 3D, en utilisant la MiniLibX.
 
-Ce projet permet de travailler sur :
-- la gestion d’une fenêtre graphique
-- le rendu 3D en temps réel
-- la gestion des événements clavier
-- la lecture et la validation de fichiers de configuration
-- les bases mathématiques du raycasting
+Ce projet met l’accent sur la compréhension des bases d’un moteur graphique, la gestion d’événements en temps réel et le développement en langage C proche du système.
+
+--------------------------------------------------
+
+OBJECTIFS DU PROJET
+
+- Création d’une fenêtre graphique sous Linux
+- Rendu 3D en temps réel par raycasting
+- Gestion des entrées clavier
+- Lecture, parsing et validation d’un fichier de configuration (.cub)
+- Implémentation de bases mathématiques liées à la projection 3D
+- Gestion rigoureuse de la mémoire et des erreurs
 
 --------------------------------------------------
 
 COMPILATION
 
+Version standard :
 make
 
 Version bonus :
@@ -23,35 +30,39 @@ make bonus
 
 EXECUTION
 
+Version standard :
 ./cub3D test_files/maps/map_3.cub
 
-Version bonus (avec collisions) :
+Version bonus (collisions activées) :
 ./cub3D_bonus test_files/maps/map_3.cub
 
 --------------------------------------------------
 
-COMMANDES
+CONTROLES
 
 Déplacements :
-- Z ou flèche haut : avancer
-- S ou flèche bas : reculer
-- Q : déplacement gauche
-- D : déplacement droite
+- Z ou Flèche haut : avancer
+- S ou Flèche bas : reculer
+- Q : déplacement à gauche
+- D : déplacement à droite
 
 Rotation :
-- flèche gauche : tourner à gauche
-- flèche droite : tourner à droite
+- Flèche gauche : tourner à gauche
+- Flèche droite : tourner à droite
 
 --------------------------------------------------
 
 FICHIER .cub
 
-Le fichier .cub contient :
-- les chemins des textures (Nord, Sud, Est, Ouest)
-- les couleurs du sol et du plafond
-- la carte du jeu
+Le fichier de configuration .cub définit :
+- Les chemins des textures (Nord, Sud, Est, Ouest)
+- Les couleurs du sol et du plafond
+- La carte du jeu
 
-La carte doit être valide et entièrement fermée par des murs.
+Contraintes :
+- La carte doit être entièrement fermée par des murs
+- Une seule position de départ est autorisée
+- Le fichier est validé avant tout lancement du jeu
 
 --------------------------------------------------
 
@@ -59,19 +70,25 @@ DEPENDANCES (LINUX)
 
 Le projet utilise la MiniLibX et nécessite les bibliothèques X11.
 
-Sur Debian / Ubuntu :
-
+Debian / Ubuntu :
 sudo apt update
 sudo apt install -y libx11-dev libxext-dev libbsd-dev
 
 --------------------------------------------------
 
-CONTRAINTES
+CONTRAINTES TECHNIQUES
 
 - Langage : C
-- Respect de la norme de l’École 42
-- Aucune fuite mémoire
+- Respect strict de la norme de l’École 42
+- Aucune fuite mémoire (vérifiée avec valgrind)
 - Gestion propre des erreurs
+- Code lisible et structuré
 - Pas d’allocation dynamique inutile
 
 --------------------------------------------------
+
+AUTEUR
+
+Zahi Mata
+Étudiant à l’École 42
+Projet réalisé en équipe
