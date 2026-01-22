@@ -1,116 +1,82 @@
-# Cube3d 
-42 project - simple 3D engine with raycasting
-## 🧭 Organisation Git
+# cub3D
 
-### 🔹 Branche principale  
-**main** → contient toujours une version stable et fonctionnelle du projet.
+cub3D est un projet graphique réalisé dans le cadre de l’École 42.
+L’objectif est de créer un moteur de rendu 3D en raycasting, inspiré de Wolfenstein 3D, en utilisant la MiniLibX.
 
-### 🔹 Branches de développement  
-Chaque nouvelle fonctionnalité se fait sur une **branche dédiée**, puis est mergée dans **main** une fois terminée et testée.
+Ce projet permet de travailler sur :
+- la gestion d’une fenêtre graphique
+- le rendu 3D en temps réel
+- la gestion des événements clavier
+- la lecture et la validation de fichiers de configuration
+- les bases mathématiques du raycasting
 
-**Exemples :**
-- zahi/parser  
-- name/raycasting  
-- zahi/textures  
-- name/minimap  
+--------------------------------------------------
 
----
+COMPILATION
 
-## 🧠 Commandes Git utiles
+make
 
-### 🆕 Créer une nouvelle branche  
-Avant de commencer une nouvelle fonctionnalité :
+Version bonus :
+make bonus
 
-```bash
-git checkout main             # se placer sur la branche principale
-git pull origin main          # récupérer la dernière version
-git checkout -b zahi/parser # creer branche
-git branch # voir toutes les branches 
-```
+--------------------------------------------------
 
-### 💾 Sauvegarder et envoyer son travail  
-```bash
-git add .
-git commit -m "feat: start parser"
-git push origin swann/parser
-```
+EXECUTION
 
-### 🔁 Mettre à jour sa branche avec main  
-Avant de merge, pour éviter les conflits :
+./cub3D test_files/maps/map_3.cub
 
-```bash
-git checkout main
-git pull origin main
-git checkout feature/parser
-git merge main
-```
+Version bonus (avec collisions) :
+./cub3D_bonus test_files/maps/map_3.cub
 
----
+--------------------------------------------------
 
-## 🚀 Fusionner dans main
+COMMANDES
 
-Quand une feature est terminée :
+Déplacements :
+- Z ou flèche haut : avancer
+- S ou flèche bas : reculer
+- Q : déplacement gauche
+- D : déplacement droite
 
-1. Aller sur **GitHub**  
-2. Créer une **Pull Request** → de `name/...` vers `main`  
-3. Le binôme vérifie et valide ✅  
-4. Merge sur GitHub  
-5. Ensuite, chacun met à jour sa branche **main** localement :
+Rotation :
+- flèche gauche : tourner à gauche
+- flèche droite : tourner à droite
 
-```bash
-git checkout main
-git pull origin main
-```
+--------------------------------------------------
 
----
+FICHIER .cub
 
-## 💬 Règles de commit
+Le fichier .cub contient :
+- les chemins des textures (Nord, Sud, Est, Ouest)
+- les couleurs du sol et du plafond
+- la carte du jeu
 
-**Format recommandé :**
-```
-<type>: <message clair>
-```
+La carte doit être valide et entièrement fermée par des murs.
 
-**Types courants :**
-- feat: nouvelle fonctionnalité  
-- fix: correction  
-- refactor: réécriture interne  
-- style: norminette / indentation  
-- docs: README, commentaires  
+--------------------------------------------------
 
-**Exemples :**
-```bash
-git commit -m "feat: implement raycasting loop"
-git commit -m "fix: leak in texture loading"
-git commit -m "style: fix norminette warnings"
-```
+DEPENDANCES (LINUX)
 
----
+Le projet utilise la MiniLibX et nécessite les bibliothèques X11.
 
-`## 🧹 Bonnes pratiques
+Sur Debian / Ubuntu :
 
-- Toujours **pull avant de coder** :
-  ```bash
-  git checkout main
-  git pull origin main
-  ```
-- Ne jamais coder directement sur **main**  
-- Une **branche = une fonctionnalité**  
-- Commit fréquents et explicites  
-- Toujours compiler sans warnings (`-Wall -Wextra -Werror`)  
+sudo apt update
+sudo apt install -y libx11-dev libxext-dev libbsd-dev
 
----
+--------------------------------------------------
 
-## 🧩 Schéma du flux Git
+CONTRAINTES
 
-```
-(main)───┐
-         ├───► feature/parser ──┐
-         │                      ├───► merge → main
-         ├───► feature/raycast ─┘
-         │
-         ▼
-       (main stable)
-```
+- Langage : C
+- Respect de la norme de l’École 42
+- Aucune fuite mémoire
+- Gestion propre des erreurs
+- Pas d’allocation dynamique inutile
 
----
+--------------------------------------------------
+
+AUTEUR
+
+Zahi Mata
+École 42
